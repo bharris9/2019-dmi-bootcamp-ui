@@ -8,7 +8,7 @@ export class MlbService {
   constructor(private http: HttpClient) {}
 
   getScores(): Observable<MlbScore[]> {
-    return this.http.get<MlbScore[]>('http://localhost:3000/mlb');
+    return this.http.get<MlbScore[]>('http://localhost:3000/scores/mlb');
   }
 
   getBoxScore(id: string): Observable<MlbBoxScore> {

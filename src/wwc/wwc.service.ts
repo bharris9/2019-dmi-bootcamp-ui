@@ -8,10 +8,10 @@ export class WwcService {
   constructor(private http: HttpClient) {}
 
   getScores(): Observable<WwcScore[]> {
-    return this.http.get<WwcScore[]>('http://localhost:3000/wwc');
+    return this.http.get<WwcScore[]>('http://localhost:3000/scores/wwc');
   }
 
   getBoxScore(gameId: number): Observable<WwcBoxScore> {
-    return this.http.get<WwcBoxScore>(`http://localhost:3000/wwc/${gameId}`);
+    return this.http.get<WwcBoxScore>(`http://localhost:3000/scores/wwc/${gameId}`);
   }
 }
