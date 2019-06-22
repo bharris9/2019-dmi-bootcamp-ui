@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MlbService } from './mlb.service';
+import { MlbScore } from './mlb.model';
 
 @Component({
   selector: 'app-mlb',
@@ -6,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mlb.component.scss']
 })
 export class MlbComponent implements OnInit {
-  constructor() {}
+  mlbScores: MlbScore[];
 
-  ngOnInit() {}
+  constructor(private service: MlbService) {}
+
+  ngOnInit() {
+    this.service.getScores().subscribe(
+      scores => {
+        this.mlbScores = scores;
+      },
+      err => console.log(err)
+    );
+  }
 }
