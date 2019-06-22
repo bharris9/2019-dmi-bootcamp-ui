@@ -15,7 +15,9 @@ export class MlbComponent implements OnInit {
   ngOnInit() {
     this.service.getScores().subscribe(
       scores => {
-        this.mlbScores = scores;
+        this.mlbScores = scores.sort(
+          (a, b) => Number(a.completed) - Number(b.completed)
+        );
       },
       err => console.log(err)
     );

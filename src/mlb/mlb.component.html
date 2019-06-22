@@ -1,3 +1,14 @@
-<mat-card class="score" *ngFor="let score of mlbScores">
-  <mat-card-title>{{score.shortName}}</mat-card-title>
-</mat-card>
+<mat-grid-list class="score-grid" cols="4">
+  <mat-grid-tile *ngFor="let score of mlbScores">
+    <mat-card class="score">
+      <mat-card-title>{{ score.shortName }}</mat-card-title>
+      <div class="details">
+        <mat-card-subtitle>{{ score.awayScore.score }} - {{ score.homeScore.score }}</mat-card-subtitle>
+        <mat-card-subtitle>{{ score.status }}</mat-card-subtitle>
+      </div>
+      <mat-card-actions class="actions">
+        <button mat-stroked-button color="primary">Box Score</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
