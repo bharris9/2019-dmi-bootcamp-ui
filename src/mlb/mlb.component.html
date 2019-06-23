@@ -1,13 +1,31 @@
 <mat-grid-list class="score-grid" cols="3" rowHeight="200px">
   <mat-grid-tile *ngFor="let score of mlbScores">
     <mat-card class="score">
-      <mat-card-title>{{ score.shortName }}</mat-card-title>
+      <!-- <mat-card-title>{{ score.shortName }}</mat-card-title>
       <div class="details">
         <mat-card-subtitle>{{ score.awayScore.score }} - {{ score.homeScore.score }}</mat-card-subtitle>
         <mat-card-subtitle>{{ score.status }}</mat-card-subtitle>
-      </div>
+      </div> -->
+      <mat-card-content class="score-content">
+        <div class="teams">
+          <div class="team">
+            <img [src]="score.awayScore.logo" />
+            <div class="team-name">{{ score.awayScore.team }}</div>
+            <div class="score-display" [class.winner]="score.awayScore.winner">{{ score.awayScore.score }}</div>
+            <span *ngIf="score.awayScore.winner" class="chevron left"></span>
+          </div>
+          <div class="team">
+            <img [src]="score.homeScore.logo" />
+            <div class="team-name">{{ score.homeScore.team }}</div>
+            <div class="score-display" [class.winner]="score.homeScore.winner">{{ score.homeScore.score }}</div>
+            <span *ngIf="score.homeScore.winner" class="chevron left"></span>
+          </div>
+       </div>
+        <mat-divider [vertical]="true"></mat-divider>
+        <div class="status">{{ score.status }}</div>
+      </mat-card-content>
       <mat-card-actions class="actions">
-        <button mat-stroked-button color="primary">Box Score</button>
+        <button mat-stroked-button color="primary" (click)="handleBoxClick(score.id)">Box Score</button>
       </mat-card-actions>
     </mat-card>
   </mat-grid-tile>

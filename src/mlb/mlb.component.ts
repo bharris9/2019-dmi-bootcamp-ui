@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MlbService } from './mlb.service';
+import { Router } from '@angular/router';
 import { MlbScore } from './mlb.model';
+import { MlbService } from './mlb.service';
 
 @Component({
   selector: 'app-mlb',
@@ -10,7 +11,7 @@ import { MlbScore } from './mlb.model';
 export class MlbComponent implements OnInit {
   mlbScores: MlbScore[];
 
-  constructor(private service: MlbService) {}
+  constructor(private service: MlbService, private router: Router) {}
 
   ngOnInit() {
     this.service.getScores().subscribe(
@@ -21,5 +22,9 @@ export class MlbComponent implements OnInit {
       },
       err => console.log(err)
     );
+  }
+
+  handleBoxClick(gameId: number) {
+    this.router.navigateByUrl('/mlb/' + gameId);
   }
 }

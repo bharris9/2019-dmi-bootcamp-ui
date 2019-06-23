@@ -11,3 +11,71 @@
   margin-top: 10px;
   width: 1000px;
 }
+
+.team {
+  display: flex;
+  margin-top: 5px;
+
+  .winner {
+    font-weight: bold;
+  }
+
+  div {
+    padding-top: 5px;
+  }
+
+  img {
+    padding-right: 5px;
+    height: 25px;
+    width: 25px;
+  }
+}
+
+.score-content {
+  display: flex;
+}
+
+.teams {
+  flex: 1;
+  min-width: 220px;
+  max-width: 220px;
+}
+
+.score-display {
+  flex: 3;
+  text-align: left;
+}
+
+.team-name {
+  text-align: left;
+  min-width: 160px;
+  max-width: 160px;
+}
+
+.status {
+  min-width: 60px;
+  max-width: 60px;
+  padding-left: 5px;
+  padding-top: 25px;
+  text-align: center;
+}
+
+.chevron::before {
+  font-size: 10px;
+	border-style: solid;
+	border-width: 0.25em 0.25em 0 0;
+	content: '';
+	display: inline-block;
+	height: 0.45em;
+	left: 0.15em;
+	position: relative;
+	top: 0.38em;
+	transform: rotate(-45deg);
+	vertical-align: middle;
+	width: 0.45em;
+}
+
+.chevron.left:before {
+	left: 0.05em;
+	transform: rotate(-135deg);
+}

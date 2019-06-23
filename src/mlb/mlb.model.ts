@@ -17,6 +17,10 @@ export interface MlbScoreItem {
   winner: boolean;
   teamAbbreviation: string;
   team: string;
+  hits: number;
+  errors: number;
+  record: string;
+  logo: string;
 }
 
 export interface MlbBoxScore {
