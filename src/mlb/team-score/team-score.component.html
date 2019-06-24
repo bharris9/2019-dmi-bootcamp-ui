@@ -1,0 +1,8 @@
+<div class="team">
+  <img [src]="scoreItem.logo" />
+  <div class="team-name">{{ scoreItem.team }}</div>
+  <div class="score-display" [class.winner]="scoreItem.winner">
+    {{ scoreItem.score }}
+  </div>
+  <span *ngIf="scoreItem.winner" class="chevron left"></span>
+</div>
