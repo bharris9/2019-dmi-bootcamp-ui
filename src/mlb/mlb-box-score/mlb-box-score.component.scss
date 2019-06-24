@@ -12,6 +12,31 @@
   width: 100%;
   align-items: top;
   justify-content: center;
+}
+
+.line-score {
+  display: flex;
+  align-items: top;
+  justify-content: center;
+}
+
+.line-score-team {
+  width: 50px;
+}
+
+.team-line-score {
+  text-align: center;
+}
+
+.inning-data {
+  width: 20px;
+}
+
+.score-main {
+  display: flex;
+}
+
+.score-divider {
   border-bottom: 1px solid lightgray;
 }
 
@@ -28,7 +53,8 @@
   justify-content: center;
 }
 
-.score, .spacer {
+.score,
+.spacer {
   flex: 1;
   font-size: 20px;
   font-weight: bold;
@@ -67,4 +93,3 @@
   font-weight: bold;
   padding-bottom: 5px;
 }
-

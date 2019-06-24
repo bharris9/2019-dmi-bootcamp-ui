@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, timer } from 'rxjs';
+import { flatMap } from 'rxjs/operators';
 import { MlbBoxScore, MlbScore } from './mlb.model';
 
 @Injectable()
@@ -12,6 +13,12 @@ export class MlbService {
   }
 
   getBoxScore(id: string): Observable<MlbBoxScore> {
-    return this.http.get<MlbBoxScore>(`http://localhost:3000/scores/mlb/${id}`);
+    return timer(0, 30000).pipe(
+      flatMap(res => {
+        return this.http.get<MlbBoxScore>(
+          `http://localhost:3000/scores/mlb/${id}`
+        );
+      })
+    );
   }
 }

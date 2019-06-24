@@ -1,0 +1,13 @@
+<mat-card class="score">
+  <mat-card-content class="score-content">
+    <div class="teams">
+      <app-team-score [scoreItem]="score.awayScore"></app-team-score>
+      <app-team-score [scoreItem]="score.homeScore"></app-team-score>
+    </div>
+    <mat-divider [vertical]="true"></mat-divider>
+    <div class="status">{{ score.status }}</div>
+  </mat-card-content>
+  <mat-card-actions class="actions">
+    <button mat-stroked-button color="primary" (click)="handleBoxClick(score.id)">Box Score</button>
+  </mat-card-actions>
+</mat-card>

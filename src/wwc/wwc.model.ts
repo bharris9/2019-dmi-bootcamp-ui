@@ -1,3 +1,5 @@
+import { ScoreItem } from '../shared/team-score/team-score.model';
+
 export interface WwcScore {
   id: string;
   name: string;
@@ -6,24 +8,16 @@ export interface WwcScore {
   status: string;
   shortName: string;
   completed: boolean;
-  homeScore: WwcScoreItem;
-  awayScore: WwcScoreItem;
+  homeScore: ScoreItem;
+  awayScore: ScoreItem;
 }
 
-export interface WwcScoreItem {
-  homeAway: 'home' | 'away';
-  score: string;
-  winner: boolean;
-  teamAbbreviation: string;
-  team: string;
-}
-
-export interface WwcBoxScore extends WwcScore {
+export interface WwcBoxScore extends ScoreItem {
   tvBroadcast: string;
   homeScore: WwcBoxScoreItem;
   awayScore: WwcBoxScoreItem;
 }
 
-export interface WwcBoxScoreItem extends WwcScoreItem {
+export interface WwcBoxScoreItem extends ScoreItem {
   logo: string;
 }

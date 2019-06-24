@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { MlbScoreItem } from '../mlb.model';
+import { ScoreItem } from './team-score.model';
 
 @Component({
   selector: 'app-team-score',
@@ -7,5 +7,5 @@ import { MlbScoreItem } from '../mlb.model';
   styleUrls: ['./team-score.component.scss']
 })
 export class TeamScoreComponent {
-  @Input() scoreItem: MlbScoreItem;
+  @Input() scoreItem: ScoreItem;
 }

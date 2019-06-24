@@ -1,3 +1,5 @@
+import { ScoreItem } from 'src/shared/team-score/team-score.model';
+
 export interface MlbScore {
   id: string;
   name: string;
@@ -7,20 +9,8 @@ export interface MlbScore {
   shortName: string;
   completed: boolean;
   inning: number;
-  homeScore: MlbScoreItem;
-  awayScore: MlbScoreItem;
-}
-
-export interface MlbScoreItem {
-  homeAway: 'home' | 'away';
-  score: string;
-  winner: boolean;
-  teamAbbreviation: string;
-  team: string;
-  hits: number;
-  errors: number;
-  record: string;
-  logo: string;
+  homeScore: ScoreItem;
+  awayScore: ScoreItem;
 }
 
 export interface MlbBoxScore {

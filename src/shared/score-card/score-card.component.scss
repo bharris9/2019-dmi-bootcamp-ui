@@ -1,0 +1,26 @@
+.score {
+  width: 275px;
+  text-align: center;
+}
+
+.details {
+  margin-top: 15px;
+}
+
+.score-content {
+  display: flex;
+}
+
+.teams {
+  flex: 1;
+  min-width: 220px;
+  max-width: 220px;
+}
+
+.status {
+  min-width: 60px;
+  max-width: 60px;
+  padding-left: 5px;
+  padding-top: 25px;
+  text-align: center;
+}

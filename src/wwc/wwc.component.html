@@ -1,3 +1,6 @@
-<p>
-  wwc works!
-</p>
+<h2 class="title">Women's World Cup</h2>
+<mat-grid-list class="score-grid" cols="3" rowHeight="200px">
+  <mat-grid-tile *ngFor="let score of wwcScores">
+    <app-score-card [score]="score" (boxClicked)="handleBoxClick($event)"></app-score-card>
+  </mat-grid-tile>
+</mat-grid-list>
