@@ -55,6 +55,7 @@ export interface BoxScoreItem {
   team: string;
   lineScores: LineScore[];
   logo: string;
+  record: string;
 }
 
 export interface LineScore {

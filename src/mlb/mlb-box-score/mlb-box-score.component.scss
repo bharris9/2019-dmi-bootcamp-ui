@@ -1,0 +1,56 @@
+.container {
+  width: 800px;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  align-items: top;
+  justify-content: center;
+}
+
+.game-status {
+  display: flex;
+  flex-direction: column;
+}
+
+.scores {
+  display: flex;
+  width: 100px;
+  align-items: top;
+  justify-content: center;
+}
+
+.score, .spacer {
+  flex: 1;
+  font-size: 20px;
+  font-weight: bold;
+  max-width: 20px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.status {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.team-score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 150px;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+
+  img {
+    height: 50px;
+    width: 50px;
+    display: block;
+    margin: 0 auto;
+  }
+}
