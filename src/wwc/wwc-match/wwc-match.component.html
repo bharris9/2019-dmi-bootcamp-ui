@@ -1,2 +1,6 @@
 <app-box-score *ngIf="wwcBoxScore" [boxScore]="wwcBoxScore">
+  <app-goals *ngIf="wwcBoxScore && wwcBoxScore.goals" 
+             [goals]="wwcBoxScore.goals" 
+             [homeTeam]="wwcBoxScore.homeScore.team"
+             [awayTeam]="wwcBoxScore.awayScore.team"></app-goals>
 </app-box-score>

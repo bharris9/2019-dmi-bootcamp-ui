@@ -1,0 +1,12 @@
+<div class="goals">
+  <span class="goal" *ngFor="let awayGoal of awayGoals">
+    {{awayGoal.player}} {{awayGoal.clock}}
+  </span>
+</div>
+<mat-divider [vertical]="true">
+<div class="goals">
+  <span class="goal" *ngFor="let homeGoal of homeGoals">
+    {{homeGoal.player}} {{homeGoal.clock}}
+  </span>
+</div>
+
