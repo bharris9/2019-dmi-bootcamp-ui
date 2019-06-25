@@ -1,0 +1,79 @@
+.container {
+  width: 800px;
+}
+
+.content {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  padding-top: 10px;
+  width: 100%;
+  align-items: top;
+  justify-content: center;
+}
+
+
+.score-main {
+  display: flex;
+}
+
+.score-divider {
+  border-bottom: 1px solid lightgray;
+}
+
+.game-status {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+.scores {
+  display: flex;
+  width: 100px;
+  align-items: top;
+  justify-content: center;
+}
+
+.score,
+.spacer {
+  flex: 1;
+  font-size: 20px;
+  font-weight: bold;
+  max-width: 20px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.status {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.team-score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 150px;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+
+  img {
+    height: 50px;
+    width: 50px;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.team-name {
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
