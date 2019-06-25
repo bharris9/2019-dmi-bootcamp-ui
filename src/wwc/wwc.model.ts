@@ -1,4 +1,5 @@
 import { ScoreItem } from '../shared/team-score/team-score.model';
+import { BoxScoreItem } from '../shared/box-score/box-score.model.ts';
 
 export interface WwcScore {
   id: string;
@@ -12,12 +13,31 @@ export interface WwcScore {
   awayScore: ScoreItem;
 }
 
-export interface WwcBoxScore extends ScoreItem {
-  tvBroadcast: string;
-  homeScore: WwcBoxScoreItem;
-  awayScore: WwcBoxScoreItem;
+export interface WwcBoxScore extends BoxScoreItem {
+  date: Date;
+  note: string;
+  homeStats: WwcTeamStats;
+  awayStats: WwcTeamStats;
+  goals: GoalItem[];
 }
 
-export interface WwcBoxScoreItem extends ScoreItem {
+export interface GoalItem {
+  clock: string;
+  team: string;
+  ownGoal: boolean;
+  player: string;
+  penaltyKick: boolean;
+}
+
+export interface WwcTeamStats {
+  team: string;
   logo: string;
+  stats: WwcStatItem[];
+}
+
+export interface WwcStatItem
+{
+  name: string;
+  displayValue: string;
+  label: string;
 }

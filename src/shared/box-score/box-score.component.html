@@ -1,0 +1,36 @@
+<mat-card *ngIf="boxScore" class="container">
+  <mat-card-content class="content">
+    <div class="header">
+      <div class="score-main" [class.score-divider]="hasGameStarted">
+        <div class="team-score">
+          <div class="team">
+            <img [src]="boxScore.awayScore.logo" />
+            <span class="team-name">{{ boxScore.awayScore.team }}</span>
+            <span class="record">({{ boxScore.awayScore.record }})</span>
+          </div>
+        </div>
+        <div class="game-status">
+          <div *ngIf="hasGameStarted" class="scores">
+            <span class="score">
+              {{ boxScore.awayScore.score }}
+            </span>
+            <span class="spacer">-</span>
+            <span class="score">
+              {{ boxScore.homeScore.score }}
+            </span>
+          </div>
+          <span class="status">{{ boxScore.status }}</span>
+        </div>
+        <div class="team-score">
+          <div class="team">
+            <img [src]="boxScore.homeScore.logo" />
+            <span class="team-name">{{ boxScore.homeScore.team }}</span>
+            <span class="record">({{ boxScore.homeScore.record }})</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-content></ng-content>
+  </mat-card-content>
+</mat-card>
+  

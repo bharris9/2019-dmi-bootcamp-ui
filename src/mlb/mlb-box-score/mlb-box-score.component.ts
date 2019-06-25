@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MlbBoxScore, LineScore } from '../mlb.model';
+import { LineScore } from 'src/shared/team-score/team-score.model';
+import { MlbBoxScore } from '../mlb.model';
 import { MlbService } from '../mlb.service';
 
 @Component({
@@ -23,7 +24,7 @@ export class MlbBoxScoreComponent implements OnInit {
     );
   }
 
-  private getLineScore(lineScores: LineScore[]): string[] {
+  getLineScore(lineScores: LineScore[]): string[] {
     const numberOfInnings = lineScores.length > 9 ? lineScores.length : 9;
     return Array.from({ length: numberOfInnings }).map((u, i) =>
       lineScores[i] ? lineScores[i].displayValue.toString() : ''

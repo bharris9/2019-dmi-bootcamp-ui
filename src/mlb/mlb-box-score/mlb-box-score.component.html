@@ -34,7 +34,7 @@
       <table>
         <tr>
           <th class="line-score-team">Team</th>
-          <th *ngFor="let lineScore of boxScore.awayScore.lineScores; let i = index">
+          <th *ngFor="let lineScore of getLineScore(boxScore.awayScore.lineScores); let i = index">
             <span class="inning-data">{{i + 1}}</span>
           </th>
           <th class="inning-data">R</th>

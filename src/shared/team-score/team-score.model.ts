@@ -8,4 +8,9 @@ export interface ScoreItem {
   errors: number;
   record: string;
   logo: string;
+  lineScores: LineScore[];
+}
+
+export interface LineScore {
+  displayValue: number;
 }

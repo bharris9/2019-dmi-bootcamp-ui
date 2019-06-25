@@ -1,4 +1,5 @@
 import { ScoreItem } from 'src/shared/team-score/team-score.model';
+import { BoxScoreItem } from 'src/shared/box-score/box-score.model.ts';
 
 export interface MlbScore {
   id: string;
@@ -13,16 +14,9 @@ export interface MlbScore {
   awayScore: ScoreItem;
 }
 
-export interface MlbBoxScore {
-  id: string;
-  shortName: string;
-  status: string;
-  completed: boolean;
+export interface MlbBoxScore extends BoxScoreItem {
   inning: number;
   lastPlay: string;
-  tvBroadcast: string;
-  homeScore: BoxScoreItem;
-  awayScore: BoxScoreItem;
   currentSituation: BoxScoreSituation;
 }
 
@@ -33,21 +27,4 @@ export interface BoxScoreSituation {
   onFirst: boolean;
   onSecond: boolean;
   onThird: boolean;
-}
-
-export interface BoxScoreItem {
-  homeAway: 'home' | 'away';
-  score: string;
-  hits: number;
-  errors: number;
-  winner: boolean;
-  teamAbbreviation: string;
-  team: string;
-  lineScores: LineScore[];
-  logo: string;
-  record: string;
-}
-
-export interface LineScore {
-  displayValue: number;
 }
