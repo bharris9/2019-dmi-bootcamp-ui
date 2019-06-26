@@ -1,0 +1,20 @@
+<div class="container">
+  <h3 class="title">Team Stats</h3>
+  <div class="stat-container">
+    <div class="stats">
+      <span class="stat" *ngFor="let stat of homeStats.stats">
+        {{ stat.displayValue }}
+      </span>
+    </div>
+    <div class="labels">
+      <span class="label" *ngFor="let stat of homeStats.stats">
+        {{ stat.label | titlecase }}
+      </span>
+    </div>
+    <div class="stats">
+      <span class="stat" *ngFor="let stat of awayStats.stats">
+        {{ stat.displayValue }}
+      </span>
+    </div>
+  </div>
+</div>
