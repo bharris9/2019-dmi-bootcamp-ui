@@ -1,7 +1,11 @@
-<app-box-score *ngIf="wwcBoxScore" [boxScore]="wwcBoxScore">
-  <app-goals *ngIf="wwcBoxScore && wwcBoxScore.goals" 
-             [goals]="wwcBoxScore.goals" 
-             [homeTeam]="wwcBoxScore.homeScore.team"
-             [awayTeam]="wwcBoxScore.awayScore.team"></app-goals>
-</app-box-score>
-<app-statistics [boxScore]="wwcBoxScore"></app-statistics>
+<ng-container *ngIf="wwcBoxScore">
+  <app-box-score [boxScore]="wwcBoxScore">
+    <app-goals
+      *ngIf="wwcBoxScore && wwcBoxScore.goals"
+      [goals]="wwcBoxScore.goals"
+      [homeTeam]="wwcBoxScore.homeScore.team"
+      [awayTeam]="wwcBoxScore.awayScore.team"
+    ></app-goals>
+  </app-box-score>
+  <app-statistics [boxScore]="wwcBoxScore"></app-statistics>
+</ng-container>
