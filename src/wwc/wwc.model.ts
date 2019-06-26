@@ -1,16 +1,9 @@
-import { ScoreItem } from '../shared/team-score/team-score.model';
 import { BoxScoreItem } from '../shared/box-score/box-score.model.ts';
+import { ScoreCard } from '../shared/score-card/score-card.model';
 
-export interface WwcScore {
-  id: string;
-  name: string;
-  date: Date;
+export interface WwcScore extends ScoreCard {
   statusType: 'STATUS_SCHEDULED' | 'STATUS_IN_PROGRESS' | 'STATUS_FINAL';
-  status: string;
-  shortName: string;
-  completed: boolean;
-  homeScore: ScoreItem;
-  awayScore: ScoreItem;
+  clock: string;
 }
 
 export interface WwcBoxScore extends BoxScoreItem {

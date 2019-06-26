@@ -1,17 +1,9 @@
-import { ScoreItem } from 'src/shared/team-score/team-score.model';
 import { BoxScoreItem } from 'src/shared/box-score/box-score.model.ts';
+import { ScoreCard } from '../shared/score-card/score-card.model';
 
-export interface MlbScore {
-  id: string;
-  name: string;
-  date: Date;
+export interface MlbScore extends ScoreCard {
   statusType: 'STATUS_SCHEDULED' | 'STATUS_IN_PROGRESS' | 'STATUS_FINAL';
-  status: string;
-  shortName: string;
-  completed: boolean;
   inning: number;
-  homeScore: ScoreItem;
-  awayScore: ScoreItem;
 }
 
 export interface MlbBoxScore extends BoxScoreItem {

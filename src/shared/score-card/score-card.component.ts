@@ -1,5 +1,5 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { ScoreItem } from '../team-score/team-score.model';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ScoreCard } from './score-card.model';
 
 @Component({
   selector: 'app-score-card',
@@ -8,7 +8,7 @@ import { ScoreItem } from '../team-score/team-score.model';
 })
 export class ScoreCardComponent {
   @Input()
-  score: ScoreItem;
+  score: ScoreCard;
 
   @Output()
   boxClicked: EventEmitter<number> = new EventEmitter<number>();
