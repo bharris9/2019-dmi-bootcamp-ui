@@ -1,12 +1,14 @@
-<div class="goals">
-  <span class="goal" *ngFor="let awayGoal of awayGoals">
-    {{awayGoal.player}} {{awayGoal.clock}}
-  </span>
+<h3 class="title">Goals</h3>
+<div class="goal-data">
+  <div class="goals">
+    <div class="goal" *ngFor="let awayGoal of awayGoals">
+      {{ awayGoal.player }} {{ awayGoal.clock }}
+    </div>
+  </div>
+  <mat-divider [vertical]="true"></mat-divider>
+  <div class="goals">
+    <span class="goal" *ngFor="let homeGoal of homeGoals">
+      {{ homeGoal.player }} {{ homeGoal.clock }}
+    </span>
+  </div>
 </div>
-<mat-divider [vertical]="true">
-<div class="goals">
-  <span class="goal" *ngFor="let homeGoal of homeGoals">
-    {{homeGoal.player}} {{homeGoal.clock}}
-  </span>
-</div>
-

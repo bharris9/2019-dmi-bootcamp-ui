@@ -1,0 +1,22 @@
+:host {
+  // align-items: top;
+  // justify-content: center;
+}
+
+.goal-data {
+  display: flex;
+  align-items: top;
+  justify-content: center;
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+}
+
+.goals {
+  display: flex;
+  padding: 0 25px 0 25px;
+  flex-direction: column;
+  width: 200px;
+}
