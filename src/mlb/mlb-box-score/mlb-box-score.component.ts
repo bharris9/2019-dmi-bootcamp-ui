@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { LineScore } from 'src/shared/team-score/team-score.model';
 import { MlbBoxScore } from '../mlb.model';
 import { MlbService } from '../mlb.service';
+import { MatButtonToggleChange } from '@angular/material/button-toggle';
 
 @Component({
   selector: 'app-mlb-box-score',
@@ -11,6 +12,7 @@ import { MlbService } from '../mlb.service';
 })
 export class MlbBoxScoreComponent implements OnInit {
   boxScore: MlbBoxScore;
+  statPage: 'home' | 'away' = 'away';
 
   constructor(private route: ActivatedRoute, private service: MlbService) {}
 
@@ -36,6 +38,10 @@ export class MlbBoxScoreComponent implements OnInit {
         return inning.toString();
       });
     }
+  }
+
+  showStatPage(homeAwayChange: MatButtonToggleChange) {
+    this.statPage = homeAwayChange.value;
   }
 
   get hasGameStarted() {
