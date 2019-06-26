@@ -25,10 +25,17 @@ export class MlbBoxScoreComponent implements OnInit {
   }
 
   getLineScore(lineScores: LineScore[]): string[] {
-    const numberOfInnings = lineScores.length > 9 ? lineScores.length : 9;
-    return Array.from({ length: numberOfInnings }).map((u, i) =>
-      lineScores[i] ? lineScores[i].displayValue.toString() : ''
-    );
+    if (!!lineScores) {
+      const numberOfInnings = lineScores.length > 9 ? lineScores.length : 9;
+      return Array.from({ length: numberOfInnings }).map((u, i) =>
+        lineScores[i] ? lineScores[i].displayValue.toString() : ''
+      );
+    } else {
+      return Array.from({ length: 9 }).map((u, i) => {
+        const inning = i + 1;
+        return inning.toString();
+      });
+    }
   }
 
   get hasGameStarted() {
