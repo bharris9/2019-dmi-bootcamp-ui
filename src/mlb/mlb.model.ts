@@ -10,6 +10,31 @@ export interface MlbBoxScore extends BoxScoreItem {
   inning: number;
   lastPlay: string;
   currentSituation: BoxScoreSituation;
+  homeBoxScore: TeamBoxScore;
+  awayBoxScore: TeamBoxScore;
+}
+
+export interface TeamBoxScore {
+  team: string;
+  statistics: TeamStats[];
+}
+
+export interface TeamStats {
+  type: string;
+  descriptions: string[];
+  labels: string[];
+  players: BoxScorePlayer[];
+  totals: string[];
+}
+
+export interface BoxScorePlayer {
+  active: boolean;
+  battingOrder: number;
+  name: string;
+  notes: string;
+  number: string;
+  position: string;
+  starter: boolean;
 }
 
 export interface BoxScoreSituation {

@@ -1,15 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ScoreItem } from 'src/shared/team-score/team-score.model';
+import { Component, Input } from '@angular/core';
+import { TeamBoxScore, TeamStats } from '../mlb.model';
 
 @Component({
   selector: 'app-mlb-stats',
   templateUrl: './mlb-stats.component.html',
   styleUrls: ['./mlb-stats.component.scss']
 })
-export class MlbStatsComponent implements OnInit {
-  @Input() scoreItem: ScoreItem;
+export class MlbStatsComponent {
+  @Input() boxScore: TeamBoxScore;
 
-  constructor() {}
+  get battingStats(): TeamStats {
+    return this.boxScore.statistics.find(s => s.type === 'batting');
+  }
 
-  ngOnInit() {}
+  get pitchingStats(): TeamStats {
+    return this.boxScore.statistics.find(s => s.type === 'pitching');
+  }
 }

@@ -32,14 +32,16 @@
       </table>
     </div>
   </app-box-score>
-  <mat-card class="stat-options">
-    <mat-card-content class="content">
-      <mat-button-toggle-group name="statPage" aria-label="Stat Page" [value]="statPage" (change)="showStatPage($event)">
-        <mat-button-toggle class="stat-option" value="away">{{boxScore.awayScore.teamAbbreviation}}</mat-button-toggle>
-        <mat-button-toggle class="stat-option" value="home">{{boxScore.homeScore.teamAbbreviation}}</mat-button-toggle>
-      </mat-button-toggle-group>
-    </mat-card-content>
-  </mat-card>
-  <app-mlb-stats *ngIf="statPage === 'away'" [scoreItem]="boxScore.awayScore"></app-mlb-stats>
-  <app-mlb-stats *ngIf="statPage === 'home'" [scoreItem]="boxScore.homeScore"></app-mlb-stats>
+  <ng-container *ngIf="hasGameStarted && boxScore.awayBoxScore">
+    <mat-card class="stat-options">
+      <mat-card-content class="content">
+        <mat-button-toggle-group name="statPage" aria-label="Stat Page" [value]="statPage" (change)="showStatPage($event)">
+          <mat-button-toggle class="stat-option" value="away">{{boxScore.awayScore.teamAbbreviation}}</mat-button-toggle>
+          <mat-button-toggle class="stat-option" value="home">{{boxScore.homeScore.teamAbbreviation}}</mat-button-toggle>
+        </mat-button-toggle-group>
+      </mat-card-content>
+    </mat-card>
+    <app-mlb-stats *ngIf="statPage === 'away'" [boxScore]="boxScore.awayBoxScore"></app-mlb-stats>
+    <app-mlb-stats *ngIf="statPage === 'home'" [boxScore]="boxScore.homeBoxScore"></app-mlb-stats>
+  </ng-container>
 </ng-container>
