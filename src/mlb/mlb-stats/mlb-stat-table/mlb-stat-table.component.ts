@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { TeamStats } from 'src/mlb/mlb.model';
+import { BoxScorePlayer } from '../../mlb.model';
 
 @Component({
   selector: 'app-mlb-stat-table',
