@@ -35,6 +35,7 @@ export interface BoxScorePlayer {
   number: string;
   position: string;
   starter: boolean;
+  stats: string[];
 }
 
 export interface BoxScoreSituation {

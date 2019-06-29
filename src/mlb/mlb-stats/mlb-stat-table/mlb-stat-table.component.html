@@ -1,0 +1,18 @@
+<table class="values">
+  <thead>
+    <tr>
+      <th class="player">Player</th>
+      <th class="stat" *ngFor="let desc of teamStats.labels">
+        {{ desc }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let player of teamStats.players; let i = index">
+      <td>{{ player.name }} {{ player.number }} {{ player.position }}</td>
+      <td *ngFor="let playerStat of player.stats">
+        {{ playerStat }}
+      </td>
+    </tr>
+  </tbody>
+</table>

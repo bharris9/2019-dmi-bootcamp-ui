@@ -2,15 +2,11 @@
   <mat-card-content class="content">
     <h3>Batting</h3>
     <div class="stats">
-      <span class="header" *ngFor="let desc of battingStats.descriptions">
-        {{ desc }}
-      </span>
+      <app-mlb-stat-table [teamStats]="battingStats"></app-mlb-stat-table>
     </div>
     <h3>Pitching</h3>
     <div class="stats">
-      <span class="header" *ngFor="let desc of pitchingStats.descriptions">
-        {{ desc }}
-      </span>
+      <app-mlb-stat-table [teamStats]="pitchingStats"></app-mlb-stat-table>
     </div>
   </mat-card-content>
 </mat-card>
