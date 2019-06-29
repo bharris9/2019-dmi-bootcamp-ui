@@ -14,15 +14,23 @@ export class WwcComponent implements OnInit {
   constructor(private service: WwcService, private router: Router) {}
 
   ngOnInit() {
-    this.service.getScores().subscribe(
+    this.getScores(new Date());
+  }
+
+  handleBoxClick(gameId: number) {
+    this.router.navigateByUrl('/wwc/' + gameId);
+  }
+
+  handleDateChanged(date: Date) {
+    this.getScores(date);
+  }
+
+  private getScores(date: Date) {
+    this.service.getScores(date).subscribe(
       scores => {
         this.wwcScores = scores;
       },
       err => console.log(err)
     );
-  }
-
-  handleBoxClick(gameId: number) {
-    this.router.navigateByUrl('/wwc/' + gameId);
   }
 }

@@ -7,11 +7,19 @@ import { WwcBoxScore, WwcScore } from './wwc.model';
 export class WwcService {
   constructor(private http: HttpClient) {}
 
-  getScores(): Observable<WwcScore[]> {
-    return this.http.get<WwcScore[]>('http://localhost:3000/scores/wwc');
+  getScores(date: Date): Observable<WwcScore[]> {
+    const yyyymmdd = this.yyyymmdd(date);
+    return this.http.get<WwcScore[]>(`http://localhost:3000/scores/wwc?date=${yyyymmdd}`);
   }
 
   getBoxScore(id: string): Observable<WwcBoxScore> {
     return this.http.get<WwcBoxScore>(`http://localhost:3000/scores/wwc/${id}`);
+  }
+
+  private yyyymmdd(dateIn) {
+    const yyyy = dateIn.getFullYear();
+    const mm = dateIn.getMonth() + 1; // getMonth() is zero-based
+    const dd = dateIn.getDate();
+    return String(10000 * yyyy + 100 * mm + dd); // Leading zeros for mm and dd
   }
 }
