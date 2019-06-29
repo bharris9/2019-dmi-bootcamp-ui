@@ -14,7 +14,19 @@ export class MlbComponent implements OnInit {
   constructor(private service: MlbService, private router: Router) {}
 
   ngOnInit() {
-    this.service.getScores().subscribe(
+    this.getScores(new Date());
+  }
+
+  handleBoxClick(gameId: number) {
+    this.router.navigateByUrl('/mlb/' + gameId);
+  }
+
+  handleDateChange(date: Date) {
+    this.getScores(date);
+  }
+
+  private getScores(date: Date) {
+    this.service.getScores(date).subscribe(
       scores => {
         this.mlbScores = scores.sort(
           (a, b) => Number(a.completed) - Number(b.completed)
@@ -22,9 +34,5 @@ export class MlbComponent implements OnInit {
       },
       err => console.log(err)
     );
-  }
-
-  handleBoxClick(gameId: number) {
-    this.router.navigateByUrl('/mlb/' + gameId);
   }
 }

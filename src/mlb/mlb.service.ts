@@ -8,8 +8,9 @@ import { MlbBoxScore, MlbScore } from './mlb.model';
 export class MlbService {
   constructor(private http: HttpClient) {}
 
-  getScores(): Observable<MlbScore[]> {
-    return this.http.get<MlbScore[]>('http://localhost:3000/scores/mlb');
+  getScores(date: Date): Observable<MlbScore[]> {
+    const yyyymmdd = this.yyyymmdd(date);
+    return this.http.get<MlbScore[]>(`http://localhost:3000/scores/mlb?date=${yyyymmdd}`);
   }
 
   getBoxScore(id: string): Observable<MlbBoxScore> {
@@ -20,5 +21,12 @@ export class MlbService {
         );
       })
     );
+  }
+
+  private yyyymmdd(dateIn) {
+    const yyyy = dateIn.getFullYear();
+    const mm = dateIn.getMonth() + 1; // getMonth() is zero-based
+    const dd = dateIn.getDate();
+    return String(10000 * yyyy + 100 * mm + dd); // Leading zeros for mm and dd
   }
 }
