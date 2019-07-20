@@ -13,7 +13,7 @@ export class ScoreCardComponent {
   @Output()
   boxClicked: EventEmitter<number> = new EventEmitter<number>();
 
-  handleBoxClick(gameId: number) {
-    this.boxClicked.emit(gameId);
+  handleBoxClick(gameId: string) {
+    this.boxClicked.emit(+gameId);
   }
 }
