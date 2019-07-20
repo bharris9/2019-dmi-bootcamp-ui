@@ -31,7 +31,7 @@
         </tr>
       </table>
     </div>
-    <div *ngIf="hasGameStarted && !boxScore.completed" class="count">
+    <div *ngIf="hasGameStarted && !boxScore.completed && !!boxScore.currentSituation" class="count">
       <span class="header">Balls:</span>
       <span>{{boxScore.currentSituation.balls}}</span>
       <span class="header">Strikes:</span>
