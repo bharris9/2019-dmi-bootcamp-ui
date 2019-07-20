@@ -31,6 +31,14 @@
         </tr>
       </table>
     </div>
+    <div *ngIf="hasGameStarted && !boxScore.completed" class="count">
+      <span class="header">Balls:</span>
+      <span>{{boxScore.currentSituation.balls}}</span>
+      <span class="header">Strikes:</span>
+      <span>{{boxScore.currentSituation.strikes}}</span>
+      <span class="header">Outs:</span>
+      <span>{{boxScore.currentSituation.outs}}</span>
+    </div>
   </app-box-score>
   <ng-container *ngIf="hasGameStarted && boxScore.awayBoxScore">
     <mat-card class="stat-options">
