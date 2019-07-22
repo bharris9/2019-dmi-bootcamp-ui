@@ -29,4 +29,4 @@ steps:
 - task: PublishPipelineArtifact@0
   inputs: 
     artifactName: 'angular'
-    targetPath: 'src/angular/dist'
+    targetPath: 'src/dist'
