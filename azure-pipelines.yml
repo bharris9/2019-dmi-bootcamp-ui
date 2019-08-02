@@ -26,7 +26,18 @@ steps:
     command: custom
     customCommand: run build -- --prod
 
-- task: PublishPipelineArtifact@0
-  inputs: 
-    artifactName: 'angular'
-    targetPath: 'dist/sports-scores'
+- task: ArchiveFiles@2
+  displayName: 'Zip + Stage Built App'
+  inputs:
+    rootFolderOrFile: 'dist/sports-scores'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/scores-ui$(Build.BuildId).zip'
+    replaceExistingArchive: true
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Stage Artifact'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'angular'
+    publishLocation: 'Container'
