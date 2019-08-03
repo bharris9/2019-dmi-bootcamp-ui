@@ -11,7 +11,7 @@ import { MlbService } from './mlb.service';
   styleUrls: ['./mlb.component.scss']
 })
 export class MlbComponent implements OnInit, OnDestroy {
-  loadingScores: boolean;
+  loadingScores = false;
   mlbScores: MlbScore[];
 
   destroyed: Subject<boolean> = new Subject<boolean>();

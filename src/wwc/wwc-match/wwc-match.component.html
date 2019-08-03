@@ -1,4 +1,4 @@
-<ng-container *ngIf="wwcBoxScore">
+<ng-container *ngIf="!!wwcBoxScore; else loading">
   <app-box-score [boxScore]="wwcBoxScore">
     <app-goals
       *ngIf="wwcBoxScore && wwcBoxScore.goals"
@@ -9,3 +9,7 @@
   </app-box-score>
   <app-statistics [boxScore]="wwcBoxScore"></app-statistics>
 </ng-container>
+
+<ng-template #loading>
+  <app-loading-spinner></app-loading-spinner>
+</ng-template>

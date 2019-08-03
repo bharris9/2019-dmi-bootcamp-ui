@@ -1,7 +1,14 @@
 <h2 class="title">Women's World Cup</h2>
 <app-date-picker (dateChanged)="handleDateChanged($event)"></app-date-picker>
-<mat-grid-list class="score-grid" cols="3" rowHeight="200px">
-  <mat-grid-tile *ngFor="let score of wwcScores">
-    <app-score-card [score]="score" (boxClicked)="handleBoxClick($event)"></app-score-card>
-  </mat-grid-tile>
-</mat-grid-list>
+
+<div class="scores">
+  <mat-grid-list *ngIf="!loadingScores; else loading" class="score-grid" cols="3" rowHeight="200px">
+    <mat-grid-tile *ngFor="let score of wwcScores">
+      <app-score-card [score]="score" (boxClicked)="handleBoxClick($event)"></app-score-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <ng-template #loading>
+    <app-loading-spinner></app-loading-spinner>
+  </ng-template>
+</div>

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subject } from 'rxjs';
 import { WwcBoxScore } from '../wwc.model';
 import { WwcService } from '../wwc.service';
 
@@ -8,10 +9,12 @@ import { WwcService } from '../wwc.service';
   templateUrl: './wwc-match.component.html',
   styleUrls: ['./wwc-match.component.scss']
 })
-export class WwcMatchComponent implements OnInit {
+export class WwcMatchComponent implements OnInit, OnDestroy {
   wwcBoxScore: WwcBoxScore;
 
-  constructor(private route: ActivatedRoute, private service: WwcService) { }
+  destroyed: Subject<boolean> = new Subject<boolean>();
+
+  constructor(private route: ActivatedRoute, private service: WwcService) {}
 
   ngOnInit() {
     const gameId = this.route.snapshot.paramMap.get('id');
@@ -23,4 +26,7 @@ export class WwcMatchComponent implements OnInit {
     );
   }
 
+  ngOnDestroy() {
+    this.destroyed.next(true);
+  }
 }
