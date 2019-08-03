@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { finalize, takeUntil } from 'rxjs/operators';
 import { MlbScore } from './mlb.model';
 import { MlbService } from './mlb.service';
 
@@ -8,13 +10,20 @@ import { MlbService } from './mlb.service';
   templateUrl: './mlb.component.html',
   styleUrls: ['./mlb.component.scss']
 })
-export class MlbComponent implements OnInit {
+export class MlbComponent implements OnInit, OnDestroy {
+  loadingScores: boolean;
   mlbScores: MlbScore[];
+
+  destroyed: Subject<boolean> = new Subject<boolean>();
 
   constructor(private service: MlbService, private router: Router) {}
 
   ngOnInit() {
     this.getScores(new Date());
+  }
+
+  ngOnDestroy() {
+    this.destroyed.next(true);
   }
 
   handleBoxClick(gameId: number) {
@@ -26,13 +35,22 @@ export class MlbComponent implements OnInit {
   }
 
   private getScores(date: Date) {
-    this.service.getScores(date).subscribe(
-      scores => {
-        this.mlbScores = scores.sort(
-          (a, b) => Number(a.completed) - Number(b.completed)
-        );
-      },
-      err => console.log(err)
-    );
+    this.loadingScores = true;
+    this.service
+      .getScores(date)
+      .pipe(
+        finalize(() => {
+          this.loadingScores = false;
+        }),
+        takeUntil(this.destroyed)
+      )
+      .subscribe(
+        scores => {
+          this.mlbScores = scores.sort(
+            (a, b) => Number(a.completed) - Number(b.completed)
+          );
+        },
+        err => console.log(err)
+      );
   }
 }

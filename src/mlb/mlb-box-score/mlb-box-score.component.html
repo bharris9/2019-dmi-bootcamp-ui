@@ -1,4 +1,4 @@
-<ng-container *ngIf="boxScore">
+<ng-container *ngIf="!!boxScore; else loading">
   <app-box-score [boxScore]="boxScore">
     <div *ngIf="hasGameStarted" class="line-score">
       <table>
@@ -97,3 +97,7 @@
     ></app-mlb-stats>
   </ng-container>
 </ng-container>
+
+<ng-template #loading>
+  <app-loading-spinner></app-loading-spinner>
+</ng-template>

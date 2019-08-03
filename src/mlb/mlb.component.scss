@@ -3,9 +3,14 @@
 }
 
 .score-grid {
-  margin-top: 10px;
   width: 1000px;
 }
+
 app-date-picker {
   padding-left: 15px;
+}
+
+.scores {
+  margin-top: 10px;
+  display: flex;
 }
