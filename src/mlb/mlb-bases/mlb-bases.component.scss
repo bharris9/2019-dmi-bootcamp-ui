@@ -7,7 +7,7 @@
 .diamond {
   width: 10px;
   height: 10px;
-  background: blue;
+  background: darkgray;
   /* Rotate */
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
@@ -23,7 +23,7 @@
 }
 
 .occupied {
-  background-color: gold;
+  background-color: blue;
 }
 
 .first {
