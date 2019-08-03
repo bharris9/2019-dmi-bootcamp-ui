@@ -1,0 +1,33 @@
+.bases {
+  display: flex;  
+}
+
+.diamond {
+  width: 10px;
+  height: 10px;
+  background: blue;
+  /* Rotate */
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  /* Rotate Origin */
+  -webkit-transform-origin: 0 100%;
+  -moz-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  -o-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+}
+
+.occupied {
+  background-color: gold;
+}
+
+.first {
+  margin: 10px 0 0 0;
+}
+
+.third {
+  margin: 10px 0 0 10px;
+}

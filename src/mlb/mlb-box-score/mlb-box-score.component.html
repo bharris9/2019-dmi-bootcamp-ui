@@ -4,52 +4,96 @@
       <table>
         <tr>
           <th class="line-score-team">Team</th>
-          <th *ngFor="let lineScore of getLineScore(boxScore.awayScore.lineScores); let i = index">
-            <span class="inning-data">{{i + 1}}</span>
+          <th
+            *ngFor="
+              let lineScore of getLineScore(boxScore.awayScore.lineScores);
+              let i = index
+            "
+          >
+            <span class="inning-data">{{ i + 1 }}</span>
           </th>
           <th class="inning-data">R</th>
           <th class="inning-data">H</th>
           <th class="inning-data">E</th>
         </tr>
         <tr class="team-line-score">
-          <td class="line-score-team">{{boxScore.awayScore.teamAbbreviation}}</td>
-          <td class="inning-data" *ngFor="let score of getLineScore(boxScore.awayScore.lineScores)">
-            {{score}}
+          <td class="line-score-team">
+            {{ boxScore.awayScore.teamAbbreviation }}
           </td>
-          <td class="inning-data">{{boxScore.awayScore.score}}</td>
-          <td class="inning-data">{{boxScore.awayScore.hits}}</td>
-          <td class="inning-data">{{boxScore.awayScore.errors}}</td>
+          <td
+            class="inning-data"
+            *ngFor="let score of getLineScore(boxScore.awayScore.lineScores)"
+          >
+            {{ score }}
+          </td>
+          <td class="inning-data">{{ boxScore.awayScore.score }}</td>
+          <td class="inning-data">{{ boxScore.awayScore.hits }}</td>
+          <td class="inning-data">{{ boxScore.awayScore.errors }}</td>
         </tr>
         <tr class="team-line-score">
-          <td class="line-score-team">{{boxScore.homeScore.teamAbbreviation}}</td>
-          <td class="inning-data" *ngFor="let score of getLineScore(boxScore.homeScore.lineScores)">
-            {{score}}
+          <td class="line-score-team">
+            {{ boxScore.homeScore.teamAbbreviation }}
           </td>
-          <td class="inning-data">{{boxScore.homeScore.score}}</td>
-          <td class="inning-data">{{boxScore.homeScore.hits}}</td>
-          <td class="inning-data">{{boxScore.homeScore.errors}}</td>
+          <td
+            class="inning-data"
+            *ngFor="let score of getLineScore(boxScore.homeScore.lineScores)"
+          >
+            {{ score }}
+          </td>
+          <td class="inning-data">{{ boxScore.homeScore.score }}</td>
+          <td class="inning-data">{{ boxScore.homeScore.hits }}</td>
+          <td class="inning-data">{{ boxScore.homeScore.errors }}</td>
         </tr>
       </table>
     </div>
-    <div *ngIf="hasGameStarted && !boxScore.completed && !!boxScore.currentSituation" class="count">
-      <span class="header">Balls:</span>
-      <span>{{boxScore.currentSituation.balls}}</span>
-      <span class="header">Strikes:</span>
-      <span>{{boxScore.currentSituation.strikes}}</span>
-      <span class="header">Outs:</span>
-      <span>{{boxScore.currentSituation.outs}}</span>
+    <div
+      *ngIf="
+        hasGameStarted && !boxScore.completed && !!boxScore.currentSituation
+      "
+      class="situation"
+    >
+      <app-mlb-bases
+        [runnerOnFirst]="boxScore.currentSituation.onFirst"
+        [runnerOnFirst]="boxScore.currentSituation.onFirst"
+        [runnerOnSecond]="boxScore.currentSituation.onSecond"
+        [runnerOnThird]="boxScore.currentSituation.onThird"
+      >
+      </app-mlb-bases>
+      <div class="count">
+        <span class="header">Balls:</span>
+        <span>{{ boxScore.currentSituation.balls }}</span>
+        <span class="header">Strikes:</span>
+        <span>{{ boxScore.currentSituation.strikes }}</span>
+        <span class="header">Outs:</span>
+        <span>{{ boxScore.currentSituation.outs }}</span>
+      </div>
     </div>
   </app-box-score>
   <ng-container *ngIf="hasGameStarted && boxScore.awayBoxScore">
     <mat-card class="stat-options">
       <mat-card-content class="content">
-        <mat-button-toggle-group name="statPage" aria-label="Stat Page" [value]="statPage" (change)="showStatPage($event)">
-          <mat-button-toggle class="stat-option" value="away">{{boxScore.awayScore.teamAbbreviation}}</mat-button-toggle>
-          <mat-button-toggle class="stat-option" value="home">{{boxScore.homeScore.teamAbbreviation}}</mat-button-toggle>
+        <mat-button-toggle-group
+          name="statPage"
+          aria-label="Stat Page"
+          [value]="statPage"
+          (change)="showStatPage($event)"
+        >
+          <mat-button-toggle class="stat-option" value="away">{{
+            boxScore.awayScore.teamAbbreviation
+          }}</mat-button-toggle>
+          <mat-button-toggle class="stat-option" value="home">{{
+            boxScore.homeScore.teamAbbreviation
+          }}</mat-button-toggle>
         </mat-button-toggle-group>
       </mat-card-content>
     </mat-card>
-    <app-mlb-stats *ngIf="statPage === 'away'" [boxScore]="boxScore.awayBoxScore"></app-mlb-stats>
-    <app-mlb-stats *ngIf="statPage === 'home'" [boxScore]="boxScore.homeBoxScore"></app-mlb-stats>
+    <app-mlb-stats
+      *ngIf="statPage === 'away'"
+      [boxScore]="boxScore.awayBoxScore"
+    ></app-mlb-stats>
+    <app-mlb-stats
+      *ngIf="statPage === 'home'"
+      [boxScore]="boxScore.homeBoxScore"
+    ></app-mlb-stats>
   </ng-container>
 </ng-container>
