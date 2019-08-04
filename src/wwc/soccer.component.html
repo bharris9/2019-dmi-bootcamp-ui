@@ -7,6 +7,7 @@
     <mat-grid-tile *ngFor="let score of soccerScores">
       <app-score-card [score]="score" (boxClicked)="handleBoxClick($event)"></app-score-card>
     </mat-grid-tile>
+    <app-no-scores *ngIf="!!selectedLeague && soccerScores.length === 0" [sportName]="selectedLeague.name"></app-no-scores>
   </mat-grid-list>
 
   <ng-template #loading>

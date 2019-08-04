@@ -6,6 +6,7 @@ import { DatePickerComponent } from './date-picker/date-picker.component';
 import { LeagueSelectorComponent } from './league-selector/league-selector.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { MaterialModule } from './material.module';
+import { NoScoresComponent } from './no-scores/no-scores.component';
 import { ScoreCardComponent } from './score-card/score-card.component';
 import { TeamScoreComponent } from './team-score/team-score.component';
 
@@ -17,7 +18,8 @@ import { TeamScoreComponent } from './team-score/team-score.component';
     BoxScoreComponent,
     DatePickerComponent,
     LoadingSpinnerComponent,
-    LeagueSelectorComponent
+    LeagueSelectorComponent,
+    NoScoresComponent
   ],
   exports: [
     TeamScoreComponent,
@@ -25,7 +27,8 @@ import { TeamScoreComponent } from './team-score/team-score.component';
     BoxScoreComponent,
     DatePickerComponent,
     LoadingSpinnerComponent,
-    LeagueSelectorComponent
+    LeagueSelectorComponent,
+    NoScoresComponent
   ],
   providers: []
 })
