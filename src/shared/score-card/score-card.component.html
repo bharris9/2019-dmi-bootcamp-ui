@@ -5,9 +5,18 @@
       <app-team-score [scoreItem]="score.homeScore"></app-team-score>
     </div>
     <mat-divider [vertical]="true"></mat-divider>
-    <div class="status">{{ score.status }}</div>
+    <div class="status">
+      {{ score.status }}
+      <ng-content select="[status]"></ng-content>
+    </div>
   </mat-card-content>
   <mat-card-actions class="actions">
-    <button mat-stroked-button color="primary" (click)="handleBoxClick(score.id)">Box Score</button>
+    <button
+      mat-stroked-button
+      color="primary"
+      (click)="handleBoxClick(score.id)"
+    >
+      Box Score
+    </button>
   </mat-card-actions>
 </mat-card>

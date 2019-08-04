@@ -2,12 +2,23 @@
 <app-date-picker (dateChanged)="handleDateChange($event)"></app-date-picker>
 
 <div class="scores">
-  <mat-grid-list *ngIf="!loadingScores; else loading" class="score-grid" cols="3" rowHeight="200px">
+  <mat-grid-list
+    *ngIf="!loadingScores; else loading"
+    class="score-grid"
+    cols="3"
+    rowHeight="200px"
+  >
     <mat-grid-tile *ngFor="let score of mlbScores">
-      <app-score-card
-        [score]="score"
-        (boxClicked)="handleBoxClick($event)"
-      ></app-score-card>
+      <app-score-card [score]="score" (boxClicked)="handleBoxClick($event)">
+        <ng-container status *ngIf="!!score.currentSituation">
+          <app-mlb-bases
+            [runnerOnFirst]="score.currentSituation.onFirst"
+            [runnerOnSecond]="score.currentSituation.onSecond"
+            [runnerOnThird]="score.currentSituation.onThird"
+          >
+          </app-mlb-bases>
+        </ng-container>
+      </app-score-card>
     </mat-grid-tile>
   </mat-grid-list>
 

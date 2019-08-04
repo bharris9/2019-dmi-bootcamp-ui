@@ -18,6 +18,8 @@
 }
 
 .status {
+  display: flex;
+  flex-direction: column;
   min-width: 60px;
   max-width: 60px;
   padding-left: 5px;

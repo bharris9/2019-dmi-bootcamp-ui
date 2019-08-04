@@ -4,6 +4,7 @@ import { ScoreCard } from '../shared/score-card/score-card.model';
 export interface MlbScore extends ScoreCard {
   statusType: 'STATUS_SCHEDULED' | 'STATUS_IN_PROGRESS' | 'STATUS_FINAL';
   inning: number;
+  currentSituation: BoxScoreSituation;
 }
 
 export interface MlbBoxScore extends BoxScoreItem {
