@@ -1,16 +1,16 @@
 import { BoxScoreItem } from '../shared/box-score/box-score.model.ts';
 import { ScoreCard } from '../shared/score-card/score-card.model';
 
-export interface WwcScore extends ScoreCard {
+export interface SoccerScore extends ScoreCard {
   statusType: 'STATUS_SCHEDULED' | 'STATUS_IN_PROGRESS' | 'STATUS_FINAL';
   clock: string;
 }
 
-export interface WwcBoxScore extends BoxScoreItem {
+export interface SoccerBoxScore extends BoxScoreItem {
   date: Date;
   note: string;
-  homeStats: WwcTeamStats;
-  awayStats: WwcTeamStats;
+  homeStats: SoccerTeamStats;
+  awayStats: SoccerTeamStats;
   goals: GoalItem[];
 }
 
@@ -22,13 +22,13 @@ export interface GoalItem {
   penaltyKick: boolean;
 }
 
-export interface WwcTeamStats {
+export interface SoccerTeamStats {
   team: string;
   logo: string;
-  stats: WwcStatItem[];
+  stats: SoccerStatItem[];
 }
 
-export interface WwcStatItem
+export interface SoccerStatItem
 {
   name: string;
   displayValue: string;

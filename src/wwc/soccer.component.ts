@@ -2,21 +2,21 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { finalize, takeUntil } from 'rxjs/operators';
-import { WwcScore } from './wwc.model';
-import { WwcService } from './wwc.service';
+import { SoccerScore } from './soccer.model';
+import { SoccerService } from './soccer.service';
 
 @Component({
-  selector: 'app-wwc',
-  templateUrl: './wwc.component.html',
-  styleUrls: ['./wwc.component.scss']
+  selector: 'app-soccer',
+  templateUrl: './soccer.component.html',
+  styleUrls: ['./soccer.component.scss']
 })
-export class WwcComponent implements OnInit, OnDestroy {
+export class SoccerComponent implements OnInit, OnDestroy {
   loadingScores = false;
-  wwcScores: WwcScore[] = [];
+  soccerScores: SoccerScore[] = [];
 
   destroyed: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private service: WwcService, private router: Router) {}
+  constructor(private service: SoccerService, private router: Router) {}
 
   ngOnInit() {
     this.getScores(new Date());
@@ -27,7 +27,7 @@ export class WwcComponent implements OnInit, OnDestroy {
   }
 
   handleBoxClick(gameId: number) {
-    this.router.navigateByUrl('/wwc/' + gameId);
+    this.router.navigateByUrl('/soccer/' + gameId);
   }
 
   handleDateChanged(date: Date) {
@@ -37,7 +37,7 @@ export class WwcComponent implements OnInit, OnDestroy {
   private getScores(date: Date) {
     this.loadingScores = true;
     this.service
-      .getScores(date)
+      .getScores(date, 'fifa.wwc')
       .pipe(
         finalize(() => {
           this.loadingScores = false;
@@ -46,7 +46,7 @@ export class WwcComponent implements OnInit, OnDestroy {
       )
       .subscribe(
         scores => {
-          this.wwcScores = scores;
+          this.soccerScores = scores;
         },
         err => console.log(err)
       );

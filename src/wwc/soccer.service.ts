@@ -2,19 +2,19 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { WwcBoxScore, WwcScore } from './wwc.model';
+import { SoccerBoxScore, SoccerScore } from './soccer.model';
 
 @Injectable()
-export class WwcService {
+export class SoccerService {
   constructor(private http: HttpClient) {}
 
-  getScores(date: Date): Observable<WwcScore[]> {
+  getScores(date: Date, league: string): Observable<SoccerScore[]> {
     const yyyymmdd = this.yyyymmdd(date);
-    return this.http.get<WwcScore[]>(`${environment.apiUrl}/scores/soccer/fifa.wwc?date=${yyyymmdd}`);
+    return this.http.get<SoccerScore[]>(`${environment.apiUrl}/scores/soccer/${league}?date=${yyyymmdd}`);
   }
 
-  getBoxScore(id: string): Observable<WwcBoxScore> {
-    return this.http.get<WwcBoxScore>(`${environment.apiUrl}/scores/soccer/fifa.wwc/${id}`);
+  getBoxScore(id: string, league: string): Observable<SoccerBoxScore> {
+    return this.http.get<SoccerBoxScore>(`${environment.apiUrl}/scores/soccer/${league}/${id}`);
   }
 
   private yyyymmdd(dateIn) {

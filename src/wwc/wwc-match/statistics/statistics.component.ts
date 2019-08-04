@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { WwcBoxScore } from '../../wwc.model';
+import { SoccerBoxScore } from '../../soccer.model';
 
 @Component({
   selector: 'app-statistics',
@@ -7,7 +7,7 @@ import { WwcBoxScore } from '../../wwc.model';
   styleUrls: ['./statistics.component.scss']
 })
 export class StatisticsComponent {
-  @Input() boxScore: WwcBoxScore;
+  @Input() boxScore: SoccerBoxScore;
 
   get homeStats() {
     return this.boxScore.homeStats;

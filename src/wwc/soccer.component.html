@@ -1,9 +1,9 @@
-<h2 class="title">Women's World Cup</h2>
+<h2 class="title">Soccer</h2>
 <app-date-picker (dateChanged)="handleDateChanged($event)"></app-date-picker>
 
 <div class="scores">
   <mat-grid-list *ngIf="!loadingScores; else loading" class="score-grid" cols="3" rowHeight="200px">
-    <mat-grid-tile *ngFor="let score of wwcScores">
+    <mat-grid-tile *ngFor="let score of soccerScores">
       <app-score-card [score]="score" (boxClicked)="handleBoxClick($event)"></app-score-card>
     </mat-grid-tile>
   </mat-grid-list>

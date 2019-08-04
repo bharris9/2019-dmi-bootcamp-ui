@@ -1,12 +1,12 @@
-import { Component, Input } from '@angular/core';
-import { GoalItem } from 'src/wwc/wwc.model';
+import { Component, Input, OnInit } from '@angular/core';
+import { GoalItem } from 'src/wwc/soccer.model';
 
 @Component({
   selector: 'app-goals',
   templateUrl: './goals.component.html',
   styleUrls: ['./goals.component.scss']
 })
-export class GoalsComponent {
+export class GoalsComponent implements OnInit {
   @Input()
   homeTeam: string;
 

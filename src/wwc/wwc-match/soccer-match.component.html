@@ -1,0 +1,15 @@
+<ng-container *ngIf="!!soccerBoxScore; else loading">
+  <app-box-score [boxScore]="soccerBoxScore">
+    <app-goals
+      *ngIf="soccerBoxScore && soccerBoxScore.goals"
+      [goals]="soccerBoxScore.goals"
+      [homeTeam]="soccerBoxScore.homeScore.team"
+      [awayTeam]="soccerBoxScore.awayScore.team"
+    ></app-goals>
+  </app-box-score>
+  <app-statistics [boxScore]="soccerBoxScore"></app-statistics>
+</ng-container>
+
+<ng-template #loading>
+  <app-loading-spinner></app-loading-spinner>
+</ng-template>
