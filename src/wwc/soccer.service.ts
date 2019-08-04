@@ -2,11 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { League } from 'src/shared/league-selector/league.model';
 import { SoccerBoxScore, SoccerScore } from './soccer.model';
 
 @Injectable()
 export class SoccerService {
   constructor(private http: HttpClient) {}
+
+  getLeagues(): Observable<League[]> {
+    return this.http.get<League[]>(`${environment.apiUrl}/leagues/soccer`);
+  }
 
   getScores(date: Date, league: string): Observable<SoccerScore[]> {
     const yyyymmdd = this.yyyymmdd(date);

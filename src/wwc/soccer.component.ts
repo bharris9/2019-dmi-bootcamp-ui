@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { finalize, takeUntil } from 'rxjs/operators';
+import { League } from 'src/shared/league-selector/league.model';
 import { SoccerScore } from './soccer.model';
 import { SoccerService } from './soccer.service';
 
@@ -12,14 +13,18 @@ import { SoccerService } from './soccer.service';
 })
 export class SoccerComponent implements OnInit, OnDestroy {
   loadingScores = false;
+  loadingLeagues = false;
   soccerScores: SoccerScore[] = [];
+  leagues: League[] = [];
+  selectedLeague: League;
+  selectedDate: Date = new Date();
 
   destroyed: Subject<boolean> = new Subject<boolean>();
 
   constructor(private service: SoccerService, private router: Router) {}
 
   ngOnInit() {
-    this.getScores(new Date());
+    this.getLeagues();
   }
 
   ngOnDestroy() {
@@ -31,13 +36,37 @@ export class SoccerComponent implements OnInit, OnDestroy {
   }
 
   handleDateChanged(date: Date) {
-    this.getScores(date);
+    this.selectedDate = date;
+    if (!!this.selectedLeague) {
+      this.getScores(this.selectedDate, this.selectedLeague.apiKey);
+    }
   }
 
-  private getScores(date: Date) {
+  handleLeagueChanged(league: League) {
+    this.selectedLeague = league;
+    this.getScores(this.selectedDate, this.selectedLeague.apiKey);
+  }
+
+  private getLeagues() {
+    this.loadingLeagues = true;
+    this.service
+      .getLeagues()
+      .pipe(
+        finalize(() => (this.loadingLeagues = false)),
+        takeUntil(this.destroyed)
+      )
+      .subscribe(
+        leagues => {
+          this.leagues = leagues;
+        },
+        err => console.log(err)
+      );
+  }
+
+  private getScores(date: Date, leagueApiKey: string) {
     this.loadingScores = true;
     this.service
-      .getScores(date, 'fifa.wwc')
+      .getScores(date, leagueApiKey)
       .pipe(
         finalize(() => {
           this.loadingScores = false;
