@@ -11,7 +11,12 @@ import { StatisticsComponent } from './wwc-match/statistics/statistics.component
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, SharedModule, MaterialModule],
-  declarations: [SoccerComponent, SoccerMatchComponent, GoalsComponent, StatisticsComponent],
+  declarations: [
+    SoccerComponent,
+    SoccerMatchComponent,
+    GoalsComponent,
+    StatisticsComponent
+  ],
   providers: [SoccerService]
 })
 export class SoccerModule {}

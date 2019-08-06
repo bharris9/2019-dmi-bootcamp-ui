@@ -12,8 +12,20 @@ import { MlbComponent } from './mlb.component';
 import { MlbService } from './mlb.service';
 
 @NgModule({
-  imports: [CommonModule, HttpClientModule, MaterialModule, SharedModule, FormsModule],
-  declarations: [MlbComponent, MlbBoxScoreComponent, MlbStatsComponent, MlbStatTableComponent, MlbBasesComponent],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    MaterialModule,
+    SharedModule,
+    FormsModule
+  ],
+  declarations: [
+    MlbComponent,
+    MlbBoxScoreComponent,
+    MlbStatsComponent,
+    MlbStatTableComponent,
+    MlbBasesComponent
+  ],
   providers: [MlbService]
 })
 export class MlbModule {}

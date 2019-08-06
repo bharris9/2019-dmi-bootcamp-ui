@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, timer } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { DateFormatter } from '../shared/date-formatter';
 import { MlbBoxScore, MlbScore } from './mlb.model';
 
 @Injectable()
@@ -10,7 +11,7 @@ export class MlbService {
   constructor(private http: HttpClient) { }
 
   getScores(date: Date): Observable<MlbScore[]> {
-    const yyyymmdd = this.yyyymmdd(date);
+    const yyyymmdd = DateFormatter.yyyymmdd(date);
     return this.http.get<MlbScore[]>(`${environment.apiUrl}/scores/mlb?date=${yyyymmdd}`);
   }
 
@@ -22,12 +23,5 @@ export class MlbService {
         );
       })
     );
-  }
-
-  private yyyymmdd(dateIn) {
-    const yyyy = dateIn.getFullYear();
-    const mm = dateIn.getMonth() + 1; // getMonth() is zero-based
-    const dd = dateIn.getDate();
-    return String(10000 * yyyy + 100 * mm + dd); // Leading zeros for mm and dd
   }
 }
