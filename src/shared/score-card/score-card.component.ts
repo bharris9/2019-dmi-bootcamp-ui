@@ -16,4 +16,8 @@ export class ScoreCardComponent {
   handleBoxClick(gameId: string) {
     this.boxClicked.emit(+gameId);
   }
+
+  get displayScore() {
+    return this.score.statusType !== 'STATUS_SCHEDULED';
+  }
 }

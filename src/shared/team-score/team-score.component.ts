@@ -7,5 +7,9 @@ import { ScoreItem } from './team-score.model';
   styleUrls: ['./team-score.component.scss']
 })
 export class TeamScoreComponent {
-  @Input() scoreItem: ScoreItem;
+  @Input()
+  scoreItem: ScoreItem;
+
+  @Input()
+  displayScore = true;
 }

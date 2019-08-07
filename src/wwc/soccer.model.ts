@@ -2,7 +2,6 @@ import { BoxScoreItem } from '../shared/box-score/box-score.model.ts';
 import { ScoreCard } from '../shared/score-card/score-card.model';
 
 export interface SoccerScore extends ScoreCard {
-  statusType: 'STATUS_SCHEDULED' | 'STATUS_IN_PROGRESS' | 'STATUS_FINAL';
   clock: string;
 }
 

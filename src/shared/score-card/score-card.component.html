@@ -1,8 +1,8 @@
 <mat-card class="score">
   <mat-card-content class="score-content">
     <div class="teams">
-      <app-team-score [scoreItem]="score.awayScore"></app-team-score>
-      <app-team-score [scoreItem]="score.homeScore"></app-team-score>
+      <app-team-score [scoreItem]="score.awayScore" [displayScore]="displayScore"></app-team-score>
+      <app-team-score [scoreItem]="score.homeScore" [displayScore]="displayScore"></app-team-score>
     </div>
     <mat-divider [vertical]="true"></mat-divider>
     <div class="status">

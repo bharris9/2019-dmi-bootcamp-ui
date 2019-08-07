@@ -7,6 +7,7 @@ export class ScoreCard {
   awayScore: ScoreItem;
   homeScore: ScoreItem;
   status: string;
+  statusType: 'STATUS_SCHEDULED' | 'STATUS_IN_PROGRESS' | 'STATUS_FINAL' | 'STATUS_POSTPONED';
   tvBroadcast: string;
   name: string;
   shortName: string;
