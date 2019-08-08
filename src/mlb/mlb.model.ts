@@ -8,6 +8,7 @@ export interface MlbScore extends ScoreCard {
 
 export interface MlbBoxScore extends BoxScoreItem {
   inning: number;
+  inningPrefix: string;
   lastPlay: string;
   currentSituation: BoxScoreSituation;
   homeBoxScore: TeamBoxScore;

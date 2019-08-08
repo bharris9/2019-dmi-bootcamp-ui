@@ -22,6 +22,14 @@ export class MlbBoxScoreComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     const gameId = this.route.snapshot.paramMap.get('id');
+    this.getGame(gameId);
+  }
+
+  ngOnDestroy() {
+    this.destroyed.next(true);
+  }
+
+  private getGame(gameId: string) {
     this.service
       .getBoxScore(gameId)
       .pipe(takeUntil(this.destroyed))
@@ -33,13 +41,9 @@ export class MlbBoxScoreComponent implements OnInit, OnDestroy {
       );
   }
 
-  ngOnDestroy() {
-    this.destroyed.next(true);
-  }
-
   getLineScore(lineScores: LineScore[]): string[] {
     if (!!lineScores) {
-      const numberOfInnings = lineScores.length > 9 ? lineScores.length : 9;
+      const numberOfInnings = this.boxScore.inning > 9 ? this.boxScore.inning : 9;
       return Array.from({ length: numberOfInnings }).map((u, i) =>
         lineScores[i] ? lineScores[i].displayValue.toString() : ''
       );
@@ -56,6 +60,6 @@ export class MlbBoxScoreComponent implements OnInit, OnDestroy {
   }
 
   get hasGameStarted() {
-    return !!this.boxScore.awayScore.score;
+    return this.boxScore.statusType !== 'STATUS_SCHEDULED';
   }
 }
