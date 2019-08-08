@@ -32,8 +32,7 @@ export class NcaaFootballComponent implements OnInit, OnDestroy {
   }
 
   handleBoxClick(gameId: number) {
-    // this.router.navigateByUrl('/ncaa-football/' + gameId);
-    window.alert(`Game Id = ${gameId}`);
+    this.router.navigateByUrl('/ncaa-football/' + gameId);
   }
 
   handleDateChanged(date: Date) {

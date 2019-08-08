@@ -24,7 +24,7 @@ export class NcaaFootballService {
     );
   }
 
-  getBoxScore(id: string, league: string): Observable<NcaaFootballBoxScore> {
+  getBoxScore(id: string): Observable<NcaaFootballBoxScore> {
     return timer(0, 30000).pipe(
       flatMap(res => {
         return this.http.get<NcaaFootballBoxScore>(

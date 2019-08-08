@@ -1,0 +1,6 @@
+<ng-container *ngIf="!!boxScore; else loading">
+  <app-box-score [boxScore]="boxScore"> </app-box-score>
+</ng-container>
+<ng-template #loading>
+  <app-loading-spinner></app-loading-spinner>
+</ng-template>
