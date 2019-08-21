@@ -10,6 +10,7 @@ import { NoScoresComponent } from './no-scores/no-scores.component';
 import { ScoreCardComponent } from './score-card/score-card.component';
 import { TeamScoreComponent } from './team-score/team-score.component';
 import { WeekSelectorComponent } from './week-selector/week-selector.component';
+import { WeekSelectorService } from './week-selector/week-selector.service';
 
 @NgModule({
   imports: [CommonModule, MaterialModule, FormsModule, ReactiveFormsModule],
@@ -33,6 +34,6 @@ import { WeekSelectorComponent } from './week-selector/week-selector.component';
     NoScoresComponent,
     WeekSelectorComponent
   ],
-  providers: []
+  providers: [WeekSelectorService]
 })
 export class SharedModule {}

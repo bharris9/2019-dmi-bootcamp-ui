@@ -1,7 +1,7 @@
 <h2 class="title">NCAA Football</h2>
 <app-date-picker (dateChanged)="handleDateChanged($event)"></app-date-picker>
-<app-league-selector class="league-selection" [leagues]="leagues" (leagueSelected)="handleLeagueChanged($event)"></app-league-selector>
-
+<app-week-selector class="selection" [dateSelected]="selectedDate" [sport]="'ncaa-football'" (weekSelected)="handleWeekChanged($event)"></app-week-selector>
+<app-league-selector class="selection" [leagues]="leagues" (leagueSelected)="handleLeagueChanged($event)"></app-league-selector>
 
 <div class="scores">
   <mat-grid-list *ngIf="!loadingScores; else loading" class="score-grid" cols="3" rowHeight="200px">

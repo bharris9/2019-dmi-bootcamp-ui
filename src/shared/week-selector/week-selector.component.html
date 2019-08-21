@@ -1,3 +1,8 @@
-<p>
-  week-selector works!
-</p>
+<mat-form-field class="week-selector">
+  <mat-label>Select a Week</mat-label>
+  <mat-select (selectionChange)="weekChanged($event)">
+    <mat-option *ngFor="let week of weeks" [value]="week.label">
+      {{ week.label }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

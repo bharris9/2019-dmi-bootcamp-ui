@@ -5,6 +5,7 @@ import { finalize, takeUntil } from 'rxjs/operators';
 import { League } from 'src/shared/league-selector/league.model';
 import { NcaaFootballScore } from './ncaa-football.model';
 import { NcaaFootballService } from './ncaa-football.service';
+import { Week } from '../shared/week-selector/calendar.model';
 
 @Component({
   selector: 'app-ncaa-football',
@@ -40,6 +41,10 @@ export class NcaaFootballComponent implements OnInit, OnDestroy {
     if (!!this.selectedLeague) {
       this.getScores(this.selectedDate, this.selectedLeague.apiKey);
     }
+  }
+
+  handleWeekChanged(week: Week) {
+    window.alert(`${week.label} selected`);
   }
 
   handleLeagueChanged(league: League) {
