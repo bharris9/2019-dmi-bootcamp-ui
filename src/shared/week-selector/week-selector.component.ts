@@ -54,10 +54,12 @@ export class WeekSelectorComponent implements OnInit, OnDestroy {
       e => e.label === changedValue.value
     );
     if (!!selectedEntry) {
+      const weekValue = selectedEntry.label.replace('Week ', '');
       this.selectedWeek = {
         label: selectedEntry.label,
         startDate: selectedEntry.startDate,
-        endDate: selectedEntry.endDate
+        endDate: selectedEntry.endDate,
+        value: +weekValue
       } as Week;
     } else {
       this.selectedWeek = null;

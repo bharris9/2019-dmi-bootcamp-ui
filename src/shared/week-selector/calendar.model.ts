@@ -24,4 +24,5 @@ export interface Week {
   label: string;
   startDate: Date;
   endDate: Date;
+  value: number;
 }

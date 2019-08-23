@@ -19,12 +19,14 @@ export class NcaaFootballComponent implements OnInit, OnDestroy {
   leagues: League[] = [];
   selectedLeague: League;
   selectedDate: Date = new Date();
+  selectedWeek: number;
 
   destroyed: Subject<boolean> = new Subject<boolean>();
 
   constructor(private service: NcaaFootballService, private router: Router) {}
 
   ngOnInit() {
+    this.selectedWeek = 1;
     this.getLeagues();
   }
 
@@ -38,18 +40,37 @@ export class NcaaFootballComponent implements OnInit, OnDestroy {
 
   handleDateChanged(date: Date) {
     this.selectedDate = date;
-    if (!!this.selectedLeague) {
-      this.getScores(this.selectedDate, this.selectedLeague.apiKey);
+    if (!!this.selectedLeague && !!this.selectedWeek) {
+      this.getScores(
+        this.selectedDate,
+        this.selectedLeague.apiKey,
+        this.selectedWeek
+      );
     }
   }
 
   handleWeekChanged(week: Week) {
-    window.alert(`${week.label} selected`);
+    if (!!week && !!this.selectedLeague) {
+      this.selectedWeek = week.value;
+      this.getScores(
+        this.selectedDate,
+        this.selectedLeague.apiKey,
+        this.selectedWeek
+      );
+    } else {
+      this.selectedWeek = 1;
+    }
   }
 
   handleLeagueChanged(league: League) {
     this.selectedLeague = league;
-    this.getScores(this.selectedDate, this.selectedLeague.apiKey);
+    if (!!this.selectedWeek) {
+      this.getScores(
+        this.selectedDate,
+        this.selectedLeague.apiKey,
+        this.selectedWeek
+      );
+    }
   }
 
   private getLeagues() {
@@ -68,10 +89,10 @@ export class NcaaFootballComponent implements OnInit, OnDestroy {
       );
   }
 
-  private getScores(date: Date, leagueApiKey: string) {
+  private getScores(date: Date, leagueApiKey: string, week: number) {
     this.loadingScores = true;
     this.service
-      .getScores(date, leagueApiKey)
+      .getScores(date, leagueApiKey, week)
       .pipe(
         finalize(() => {
           this.loadingScores = false;

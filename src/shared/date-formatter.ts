@@ -5,4 +5,8 @@ export class DateFormatter {
     const dd = dateIn.getDate();
     return String(10000 * yyyy + 100 * mm + dd); // Leading zeros for mm and dd
   }
+
+  static yyyy(dateIn: Date): string {
+    return dateIn.getFullYear().toString();
+  }
 }
