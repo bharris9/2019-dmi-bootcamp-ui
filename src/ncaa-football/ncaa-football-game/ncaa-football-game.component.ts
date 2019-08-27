@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { NcaaFootballBoxScore } from '../ncaa-football.model';
 import { NcaaFootballService } from '../ncaa-football.service';
+import { LineScore } from 'src/shared/team-score/team-score.model';
 
 @Component({
   selector: 'app-ncaa-football-game',
@@ -27,6 +28,20 @@ export class NcaaFootballGameComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.destroyed.next(true);
+  }
+
+  getLineScore(lineScores: LineScore[]): string[] {
+    if (!!lineScores) {
+      const numberOfInnings = this.boxScore.quarter > 4 ? this.boxScore.quarter : 4;
+      return Array.from({ length: numberOfInnings }).map((u, i) =>
+        lineScores[i] ? lineScores[i].displayValue.toString() : ''
+      );
+    } else {
+      return Array.from({ length: 4 }).map((u, i) => {
+        const inning = i + 1;
+        return inning.toString();
+      });
+    }
   }
 
   private getGame(gameId: string) {

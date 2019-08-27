@@ -1,0 +1,21 @@
+.line-score {
+  display: flex;
+  align-items: top;
+  justify-content: center;
+}
+
+.line-score-team {
+  width: 50px;
+}
+
+.team-line-score {
+  text-align: center;
+}
+
+.quarter-data {
+  width: 20px;
+}
+
+app-loading-spinner {
+  margin-top: 10px;
+}
