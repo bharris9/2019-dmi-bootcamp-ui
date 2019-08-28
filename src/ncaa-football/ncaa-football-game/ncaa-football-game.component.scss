@@ -16,6 +16,18 @@
   width: 20px;
 }
 
+.stat-options {
+  display: flex;
+  width: 800px;
+  justify-content: center;
+  text-align: center;
+  border-top: 1px solid gray;
+}
+
+.stat-option {
+  width: 250px;
+}
+
 app-loading-spinner {
   margin-top: 10px;
 }

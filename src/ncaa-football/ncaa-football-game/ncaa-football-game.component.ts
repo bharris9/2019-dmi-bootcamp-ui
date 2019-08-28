@@ -1,10 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { MatButtonToggleChange } from '@angular/material/button-toggle';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { LineScore } from 'src/shared/team-score/team-score.model';
 import { NcaaFootballBoxScore } from '../ncaa-football.model';
 import { NcaaFootballService } from '../ncaa-football.service';
-import { LineScore } from 'src/shared/team-score/team-score.model';
 
 @Component({
   selector: 'app-ncaa-football-game',
@@ -13,6 +14,7 @@ import { LineScore } from 'src/shared/team-score/team-score.model';
 })
 export class NcaaFootballGameComponent implements OnInit, OnDestroy {
   boxScore: NcaaFootballBoxScore;
+  statPage: 'home' | 'away' | 'summary' = 'summary';
 
   destroyed: Subject<boolean> = new Subject<boolean>();
 
@@ -42,6 +44,10 @@ export class NcaaFootballGameComponent implements OnInit, OnDestroy {
         return inning.toString();
       });
     }
+  }
+
+  showStatPage(homeAwayChange: MatButtonToggleChange) {
+    this.statPage = homeAwayChange.value;
   }
 
   private getGame(gameId: string) {

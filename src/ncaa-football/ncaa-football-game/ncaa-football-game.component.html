@@ -41,7 +41,40 @@
       </table>
     </div>
   </app-box-score>
+  <ng-container *ngIf="hasGameStarted && boxScore.awayPlayerStats">
+    <mat-card class="stat-options">
+      <mat-card-content class="content">
+        <mat-button-toggle-group
+          name="statPage"
+          aria-label="Stat Page"
+          [value]="statPage"
+          (change)="showStatPage($event)"
+        >
+          <mat-button-toggle class="stat-option" value="away">{{
+            boxScore.awayScore.teamAbbreviation
+          }}</mat-button-toggle>
+          <mat-button-toggle class="stat-option" value="summary"
+            >Game Summary</mat-button-toggle
+          >
+          <mat-button-toggle class="stat-option" value="home">{{
+            boxScore.homeScore.teamAbbreviation
+          }}</mat-button-toggle>
+        </mat-button-toggle-group>
+      </mat-card-content>
+    </mat-card>
+    <app-ncaa-football-player-stats
+      *ngIf="statPage === 'away'"
+      [playerStats]="boxScore.awayPlayerStats"
+    >
+    </app-ncaa-football-player-stats>
+    <app-ncaa-football-player-stats
+      *ngIf="statPage === 'home'"
+      [playerStats]="boxScore.homePlayerStats"
+    >
+    </app-ncaa-football-player-stats>
+  </ng-container>
 </ng-container>
+
 <ng-template #loading>
   <app-loading-spinner></app-loading-spinner>
 </ng-template>

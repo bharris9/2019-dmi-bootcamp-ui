@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/shared/material.module';
 import { SharedModule } from '../shared/shared.module';
 import { NcaaFootballGameComponent } from './ncaa-football-game/ncaa-football-game.component';
+import { NcaaFootballPlayerStatsComponent } from './ncaa-football-player-stats/ncaa-football-player-stats.component';
 import { NcaaFootballComponent } from './ncaa-football.component';
 import { NcaaFootballService } from './ncaa-football.service';
 
@@ -16,7 +17,11 @@ import { NcaaFootballService } from './ncaa-football.service';
     SharedModule,
     FormsModule
   ],
-  declarations: [NcaaFootballComponent, NcaaFootballGameComponent],
+  declarations: [
+    NcaaFootballComponent,
+    NcaaFootballGameComponent,
+    NcaaFootballPlayerStatsComponent
+  ],
   providers: [NcaaFootballService]
 })
 export class NcaaFootballModule {}
