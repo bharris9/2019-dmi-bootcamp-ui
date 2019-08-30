@@ -101,7 +101,9 @@ export class NcaaFootballComponent implements OnInit, OnDestroy {
       )
       .subscribe(
         scores => {
-          this.scores = scores;
+          this.scores = scores.sort(
+            (a, b) => Number(a.completed) - Number(b.completed)
+          );
         },
         err => console.log(err)
       );
