@@ -1,0 +1,32 @@
+.player {
+  display: flex;
+  text-align: left;
+  width: 250px;
+
+  span {
+    padding-right: 5px;
+  }
+}
+
+.stat {
+  padding-right: 15px;
+}
+
+.player-number,
+.player-position {
+  color: gray;
+  width: 20px;
+}
+
+.player-number {
+  text-align: right;
+}
+
+.player-position {
+  text-align: left;
+}
+
+.player-name {
+  width: 150px;
+  padding: 0 10px 0 10px;
+}

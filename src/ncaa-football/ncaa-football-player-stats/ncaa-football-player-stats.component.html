@@ -1,9 +1,11 @@
 <mat-card class="stats-container">
   <mat-card-content class="content">
     <ng-container *ngFor="let statItem of playerStats.statistics">
-      <h3>{{statItem.type | titlecase}}</h3>
+      <h3>{{ statItem.type | titlecase }}</h3>
       <div class="stats">
-        Stats Here
+        <app-ncaa-football-stats-table
+          [stats]="statItem"
+        ></app-ncaa-football-stats-table>
       </div>
     </ng-container>
   </mat-card-content>
