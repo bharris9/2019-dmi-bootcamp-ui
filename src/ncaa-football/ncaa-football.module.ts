@@ -8,6 +8,7 @@ import { NcaaFootballGameComponent } from './ncaa-football-game/ncaa-football-ga
 import { NcaaFootballPlayerStatsComponent } from './ncaa-football-player-stats/ncaa-football-player-stats.component';
 // tslint:disable-next-line:max-line-length
 import { NcaaFootballStatsTableComponent } from './ncaa-football-player-stats/ncaa-football-stats-table/ncaa-football-stats-table.component';
+import { NcaaFootballTeamStatsComponent } from './ncaa-football-team-stats/ncaa-football-team-stats.component';
 import { NcaaFootballComponent } from './ncaa-football.component';
 import { NcaaFootballService } from './ncaa-football.service';
 
@@ -23,7 +24,8 @@ import { NcaaFootballService } from './ncaa-football.service';
     NcaaFootballComponent,
     NcaaFootballGameComponent,
     NcaaFootballPlayerStatsComponent,
-    NcaaFootballStatsTableComponent
+    NcaaFootballStatsTableComponent,
+    NcaaFootballTeamStatsComponent
   ],
   providers: [NcaaFootballService]
 })

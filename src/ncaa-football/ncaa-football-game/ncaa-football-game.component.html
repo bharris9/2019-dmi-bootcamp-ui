@@ -72,6 +72,10 @@
       [playerStats]="boxScore.homePlayerStats"
     >
     </app-ncaa-football-player-stats>
+    <app-ncaa-football-team-stats
+      *ngIf="statPage === 'summary'"
+      [boxScore]="boxScore"
+    ></app-ncaa-football-team-stats>
   </ng-container>
 </ng-container>
 

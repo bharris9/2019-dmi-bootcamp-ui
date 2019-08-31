@@ -27,8 +27,7 @@ export interface SoccerTeamStats {
   stats: SoccerStatItem[];
 }
 
-export interface SoccerStatItem
-{
+export interface SoccerStatItem {
   name: string;
   displayValue: string;
   label: string;

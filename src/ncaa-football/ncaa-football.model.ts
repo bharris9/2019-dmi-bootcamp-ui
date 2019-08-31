@@ -44,5 +44,13 @@ export interface PlayerStats {
 
 export interface NcaaFootballTeamStats {
   team: string;
+  teamAbbreviation: string;
+  logo: string;
+  stats: NcaaFootballTeamStatItem[];
 }
 
+export interface NcaaFootballTeamStatItem {
+  name: string;
+  displayValue: string;
+  label: string;
+}
