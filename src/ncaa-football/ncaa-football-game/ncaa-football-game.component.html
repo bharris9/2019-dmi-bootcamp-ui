@@ -10,7 +10,9 @@
               let i = index
             "
           >
-            <span class="quarter-data">{{ i < 4 ? i + 1 : 'OT' + (i - 3) }}</span>
+            <span class="quarter-data">{{
+              i < 4 ? i + 1 : 'OT' + (i - 3)
+            }}</span>
           </th>
           <th class="quarter-data">T</th>
         </tr>
@@ -39,6 +41,14 @@
           <td class="quarter-data">{{ boxScore.homeScore.score }}</td>
         </tr>
       </table>
+    </div>
+    <div
+      *ngIf="
+        hasGameStarted && !boxScore.completed && !!boxScore.currentSituation
+      "
+      class="situation"
+    >
+      <span class="down-distance">{{ boxScore.lastPlay }}</span>
     </div>
   </app-box-score>
   <ng-container *ngIf="hasGameStarted && boxScore.awayPlayerStats">
