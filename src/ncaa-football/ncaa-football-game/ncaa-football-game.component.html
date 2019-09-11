@@ -10,7 +10,7 @@
               let i = index
             "
           >
-            <span class="quarter-data">{{ i + 1 }}</span>
+            <span class="quarter-data">{{ i < 4 ? i + 1 : 'OT' + (i - 3) }}</span>
           </th>
           <th class="quarter-data">T</th>
         </tr>
