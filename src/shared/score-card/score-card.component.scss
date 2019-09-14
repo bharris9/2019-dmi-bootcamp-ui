@@ -26,3 +26,15 @@
   padding-top: 25px;
   text-align: center;
 }
+
+.actions {
+  display: flex;
+}
+
+.tv {
+  flex: 1;
+  min-width: 25px;
+  padding-left: 10px;
+  text-align: left;
+  padding-top: 10px;
+}
