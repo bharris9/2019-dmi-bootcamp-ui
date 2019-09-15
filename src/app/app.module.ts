@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CoreModule } from '../core/core.module';
 import { MlbModule } from '../mlb/mlb.module';
 import { NcaaFootballModule } from '../ncaa-football/ncaa-football.module';
@@ -19,7 +20,8 @@ import { AppComponent } from './app.component';
       CoreModule,
       MlbModule,
       SoccerModule,
-      NcaaFootballModule
+      NcaaFootballModule,
+      FontAwesomeModule
    ],
    providers: [],
    bootstrap: [

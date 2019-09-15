@@ -18,6 +18,10 @@
         </tr>
         <tr class="team-line-score">
           <td class="line-score-team">
+            <fa-icon
+              *ngIf="!!boxScore.awayScore.possession"
+              [icon]="faFootballBall"
+            ></fa-icon>
             {{ boxScore.awayScore.teamAbbreviation }}
           </td>
           <td
@@ -30,6 +34,11 @@
         </tr>
         <tr class="team-line-score">
           <td class="line-score-team">
+            <fa-icon
+              *ngIf="!!boxScore.homeScore.possession"
+              [icon]="faFootballBall"
+            ></fa-icon>
+
             {{ boxScore.homeScore.teamAbbreviation }}
           </td>
           <td
@@ -43,11 +52,12 @@
       </table>
     </div>
     <div
-      *ngIf="
-        hasGameStarted && !boxScore.completed && !!boxScore.lastPlay
-      "
+      *ngIf="hasGameStarted && !boxScore.completed && !!boxScore.lastPlay"
       class="situation"
     >
+      <span *ngIf="!!boxScore.downDistance" class="down-distance">{{
+        boxScore.downDistance
+      }}</span>
       <span class="down-distance">{{ boxScore.lastPlay }}</span>
     </div>
   </app-box-score>

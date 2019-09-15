@@ -5,7 +5,13 @@
 }
 
 .line-score-team {
+  display:flex;
   width: 50px;
+
+  fa-icon {
+    color: blue;
+    padding-right: 5px;
+  }
 }
 
 .team-line-score {
@@ -25,8 +31,13 @@
 }
 
 .situation {
-  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
   text-align: center;
+}
+
+.down-distance {
+  padding-top: 10px;
 }
 
 .stat-option {

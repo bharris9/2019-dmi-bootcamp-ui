@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MaterialModule } from 'src/shared/material.module';
 import { SharedModule } from '../shared/shared.module';
 import { NcaaFootballGameComponent } from './ncaa-football-game/ncaa-football-game.component';
@@ -18,7 +19,8 @@ import { NcaaFootballService } from './ncaa-football.service';
     HttpClientModule,
     MaterialModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   declarations: [
     NcaaFootballComponent,

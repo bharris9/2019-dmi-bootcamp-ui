@@ -19,7 +19,7 @@ export class NcaaFootballComponent implements OnInit, OnDestroy {
   leagues: League[] = [];
   selectedLeague: League;
   selectedDate: Date = new Date();
-  selectedWeek: number;
+  selectedWeek: number = null;
 
   destroyed: Subject<boolean> = new Subject<boolean>();
 
@@ -50,15 +50,13 @@ export class NcaaFootballComponent implements OnInit, OnDestroy {
   }
 
   handleWeekChanged(week: Week) {
-    if (!!week && !!this.selectedLeague) {
-      this.selectedWeek = week.value;
+    this.selectedWeek = week.value;
+    if (!!this.selectedWeek && !!this.selectedLeague) {
       this.getScores(
         this.selectedDate,
         this.selectedLeague.apiKey,
         this.selectedWeek
       );
-    } else {
-      this.selectedWeek = 1;
     }
   }
 

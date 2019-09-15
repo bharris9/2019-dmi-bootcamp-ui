@@ -11,6 +11,7 @@ export interface NcaaFootballScore extends ScoreCard {
 export interface NcaaFootballBoxScore extends BoxScoreItem {
   quarter: number;
   lastPlay: string;
+  downDistance: string;
   homeScore: NcaaFootballScoreItem;
   awayScore: NcaaFootballScoreItem;
   awayPlayerStats: NcaaFootballPlayerStats;

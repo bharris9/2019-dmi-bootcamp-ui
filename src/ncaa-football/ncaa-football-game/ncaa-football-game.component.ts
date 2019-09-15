@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
 import { ActivatedRoute } from '@angular/router';
+import { faFootballBall } from '@fortawesome/free-solid-svg-icons';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { LineScore } from 'src/shared/team-score/team-score.model';
@@ -13,6 +14,7 @@ import { NcaaFootballService } from '../ncaa-football.service';
   styleUrls: ['./ncaa-football-game.component.scss']
 })
 export class NcaaFootballGameComponent implements OnInit, OnDestroy {
+  faFootballBall = faFootballBall;
   boxScore: NcaaFootballBoxScore;
   statPage: 'home' | 'away' | 'summary' = 'summary';
 
