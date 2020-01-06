@@ -17,10 +17,26 @@ export class NcaaFootballService {
     );
   }
 
-  getScores(date: Date, league: string, week: number): Observable<NcaaFootballScore[]> {
+  getScores(
+    date: Date,
+    league: string,
+    week: number
+  ): Observable<NcaaFootballScore[]> {
     const yyyy = DateFormatter.yyyy(date);
     return this.http.get<NcaaFootballScore[]>(
       `${environment.apiUrl}/scores/ncaa-football?date=${yyyy}&group=${league}&week=${week}`
+    );
+  }
+
+  getScoresRange(
+    startDate: Date,
+    endDate: Date,
+    league: string
+  ): Observable<NcaaFootballScore[]> {
+    const formattedStart = DateFormatter.yyyymmdd(startDate);
+    const formattedEnd = DateFormatter.yyyymmdd(endDate);
+    return this.http.get<NcaaFootballScore[]>(
+      `${environment.apiUrl}/scores/ncaa-football?date=${formattedStart}-${formattedEnd}&group=${league}`
     );
   }
 

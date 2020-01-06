@@ -19,14 +19,14 @@ export class NcaaFootballComponent implements OnInit, OnDestroy {
   leagues: League[] = [];
   selectedLeague: League;
   selectedDate: Date = new Date();
-  selectedWeek: number = null;
+  selectedWeek: Week = null;
 
   destroyed: Subject<boolean> = new Subject<boolean>();
 
   constructor(private service: NcaaFootballService, private router: Router) {}
 
   ngOnInit() {
-    this.selectedWeek = 1;
+    this.selectedWeek = { value: 1 } as Week;
     this.getLeagues();
   }
 
@@ -40,33 +40,73 @@ export class NcaaFootballComponent implements OnInit, OnDestroy {
 
   handleDateChanged(date: Date) {
     this.selectedDate = date;
-    if (!!this.selectedLeague && !!this.selectedWeek) {
+    if (
+      !!this.selectedLeague &&
+      this.selectedWeek &&
+      !!this.selectedWeek.value
+    ) {
       this.getScores(
         this.selectedDate,
         this.selectedLeague.apiKey,
-        this.selectedWeek
+        this.selectedWeek.value
+      );
+    } else if (
+      this.selectedWeek &&
+      (this.selectedWeek.label === 'Bowls' ||
+        this.selectedWeek.label === 'All-Star') &&
+      !!this.selectedLeague
+    ) {
+      this.getScoresRange(
+        new Date(this.selectedWeek.startDate),
+        new Date(this.selectedWeek.endDate),
+        this.selectedLeague.apiKey
       );
     }
   }
 
   handleWeekChanged(week: Week) {
-    this.selectedWeek = week.value;
-    if (!!this.selectedWeek && !!this.selectedLeague) {
+    this.selectedWeek = week;
+    if (
+      !!this.selectedLeague &&
+      this.selectedWeek &&
+      !!this.selectedWeek.value
+    ) {
       this.getScores(
         this.selectedDate,
         this.selectedLeague.apiKey,
-        this.selectedWeek
+        this.selectedWeek.value
+      );
+    } else if (
+      !!week &&
+      (week.label === 'Bowls' || week.label === 'All-Star') &&
+      !!this.selectedLeague
+    ) {
+      this.getScoresRange(
+        new Date(week.startDate),
+        new Date(week.endDate),
+        this.selectedLeague.apiKey
       );
     }
   }
 
   handleLeagueChanged(league: League) {
     this.selectedLeague = league;
-    if (!!this.selectedWeek) {
+    if (this.selectedWeek && !!this.selectedWeek.value) {
       this.getScores(
         this.selectedDate,
         this.selectedLeague.apiKey,
-        this.selectedWeek
+        this.selectedWeek.value
+      );
+    } else if (
+      this.selectedWeek &&
+      (this.selectedWeek.label === 'Bowls' ||
+        this.selectedWeek.label === 'All-Star') &&
+      !!this.selectedLeague
+    ) {
+      this.getScoresRange(
+        new Date(this.selectedWeek.startDate),
+        new Date(this.selectedWeek.endDate),
+        this.selectedLeague.apiKey
       );
     }
   }
@@ -82,6 +122,26 @@ export class NcaaFootballComponent implements OnInit, OnDestroy {
       .subscribe(
         leagues => {
           this.leagues = leagues;
+        },
+        err => console.log(err)
+      );
+  }
+
+  private getScoresRange(startDate: Date, endDate: Date, leagueApiKey: string) {
+    this.loadingScores = true;
+    this.service
+      .getScoresRange(startDate, endDate, leagueApiKey)
+      .pipe(
+        finalize(() => {
+          this.loadingScores = false;
+        }),
+        takeUntil(this.destroyed)
+      )
+      .subscribe(
+        scores => {
+          this.scores = scores.sort(
+            (a, b) => Number(a.completed) - Number(b.completed)
+          );
         },
         err => console.log(err)
       );
