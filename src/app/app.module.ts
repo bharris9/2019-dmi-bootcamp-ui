@@ -15,13 +15,13 @@ import { AppComponent } from './app.component';
    ],
    imports: [
       BrowserModule,
-      AppRoutingModule,
       BrowserAnimationsModule,
       CoreModule,
       MlbModule,
       SoccerModule,
       NcaaFootballModule,
-      FontAwesomeModule
+      FontAwesomeModule,
+      AppRoutingModule
    ],
    providers: [],
    bootstrap: [

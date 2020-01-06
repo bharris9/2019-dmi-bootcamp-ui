@@ -4,8 +4,6 @@ import { HomeComponent } from 'src/core/home/home.component';
 import { MlbComponent } from 'src/mlb/mlb.component';
 import { SoccerComponent } from 'src/wwc/soccer.component';
 import { MlbBoxScoreComponent } from '../mlb/mlb-box-score/mlb-box-score.component';
-import { NcaaFootballGameComponent } from '../ncaa-football/ncaa-football-game/ncaa-football-game.component';
-import { NcaaFootballComponent } from '../ncaa-football/ncaa-football.component';
 import { SoccerMatchComponent } from '../wwc/wwc-match/soccer-match.component';
 
 const routes: Routes = [
@@ -33,19 +31,6 @@ const routes: Routes = [
       {
         path: ':id',
         component: SoccerMatchComponent
-      }
-    ]
-  },
-  {
-    path: 'ncaa-football',
-    children: [
-      {
-        path: '',
-        component: NcaaFootballComponent
-      },
-      {
-        path: ':id',
-        component: NcaaFootballGameComponent
       }
     ]
   }

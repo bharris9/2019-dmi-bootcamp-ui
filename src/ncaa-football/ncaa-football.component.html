@@ -1,17 +1,6 @@
 <h2 class="title">NCAA Football</h2>
-<app-date-picker (dateChanged)="handleDateChanged($event)"></app-date-picker>
-<app-week-selector class="selection" [dateSelected]="selectedDate" [sport]="'ncaa-football'" (weekSelected)="handleWeekChanged($event)"></app-week-selector>
-<app-league-selector class="selection" [leagues]="leagues" (leagueSelected)="handleLeagueChanged($event)"></app-league-selector>
-
-<div class="scores">
-  <mat-grid-list *ngIf="!loadingScores; else loading" class="score-grid" cols="3" rowHeight="200px">
-    <mat-grid-tile *ngFor="let score of scores">
-      <app-score-card [score]="score" (boxClicked)="handleBoxClick($event)"></app-score-card>
-    </mat-grid-tile>
-    <app-no-scores *ngIf="!!selectedLeague && scores.length === 0" [sportName]="selectedLeague.name"></app-no-scores>
-  </mat-grid-list>
-
-  <ng-template #loading>
-    <app-loading-spinner></app-loading-spinner>
-  </ng-template>
-</div>
+<mat-nav-list class="list-horizontal">
+  <mat-list-item><a [routerLink]="['/ncaa-football/scores']">Scores</a></mat-list-item>
+  <mat-list-item>Rankings</mat-list-item>
+</mat-nav-list>
+<router-outlet></router-outlet>
