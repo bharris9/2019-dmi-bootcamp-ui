@@ -11,9 +11,8 @@ describe('MlbStatTableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MlbStatTableComponent ]
-    })
-    .compileComponents();
+      declarations: [MlbStatTableComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

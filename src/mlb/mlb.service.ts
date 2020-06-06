@@ -8,11 +8,13 @@ import { MlbBoxScore, MlbScore } from './mlb.model';
 
 @Injectable()
 export class MlbService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getScores(date: Date): Observable<MlbScore[]> {
     const yyyymmdd = DateFormatter.yyyymmdd(date);
-    return this.http.get<MlbScore[]>(`${environment.apiUrl}/scores/mlb?date=${yyyymmdd}`);
+    return this.http.get<MlbScore[]>(
+      `${environment.apiUrl}/scores/mlb?date=${yyyymmdd}`
+    );
   }
 
   getBoxScore(id: string): Observable<MlbBoxScore> {

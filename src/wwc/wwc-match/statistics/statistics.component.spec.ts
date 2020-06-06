@@ -11,9 +11,8 @@ describe('StatisticsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StatisticsComponent ]
-    })
-    .compileComponents();
+      declarations: [StatisticsComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -20,7 +20,10 @@
         </ng-container>
       </app-score-card>
     </mat-grid-tile>
-    <app-no-scores *ngIf="mlbScores.length === 0" [sportName]="'Major League Baseball'"></app-no-scores>
+    <app-no-scores
+      *ngIf="mlbScores.length === 0"
+      [sportName]="'Major League Baseball'"
+    ></app-no-scores>
   </mat-grid-list>
 
   <ng-template #loading>

@@ -11,9 +11,8 @@ describe('BoxScoreComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BoxScoreComponent ]
-    })
-    .compileComponents();
+      declarations: [BoxScoreComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

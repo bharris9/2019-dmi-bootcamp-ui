@@ -75,7 +75,7 @@ export class WeekSelectorComponent implements OnInit, OnDestroy, OnChanges {
 
   weekChanged(changedValue: MatSelectChange) {
     const selectedEntry = this.weeks.find(e => e.label === changedValue.value);
-    if (!!selectedEntry) {
+    if (selectedEntry) {
       const weekValue = selectedEntry.label.replace('Week ', '');
       this.selectedWeek = {
         label: selectedEntry.label,

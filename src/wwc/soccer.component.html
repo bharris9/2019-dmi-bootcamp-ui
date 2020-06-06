@@ -1,13 +1,28 @@
 <h2 class="title">Soccer</h2>
 <app-date-picker (dateChanged)="handleDateChanged($event)"></app-date-picker>
-<app-league-selector class="league-selection" [leagues]="leagues" (leagueSelected)="handleLeagueChanged($event)"></app-league-selector>
+<app-league-selector
+  class="league-selection"
+  [leagues]="leagues"
+  (leagueSelected)="handleLeagueChanged($event)"
+></app-league-selector>
 
 <div class="scores">
-  <mat-grid-list *ngIf="!loadingScores; else loading" class="score-grid" cols="3" rowHeight="200px">
+  <mat-grid-list
+    *ngIf="!loadingScores; else loading"
+    class="score-grid"
+    cols="3"
+    rowHeight="200px"
+  >
     <mat-grid-tile *ngFor="let score of soccerScores">
-      <app-score-card [score]="score" (boxClicked)="handleBoxClick($event)"></app-score-card>
+      <app-score-card
+        [score]="score"
+        (boxClicked)="handleBoxClick($event)"
+      ></app-score-card>
     </mat-grid-tile>
-    <app-no-scores *ngIf="!!selectedLeague && soccerScores.length === 0" [sportName]="selectedLeague.name"></app-no-scores>
+    <app-no-scores
+      *ngIf="!!selectedLeague && soccerScores.length === 0"
+      [sportName]="selectedLeague.name"
+    ></app-no-scores>
   </mat-grid-list>
 
   <ng-template #loading>

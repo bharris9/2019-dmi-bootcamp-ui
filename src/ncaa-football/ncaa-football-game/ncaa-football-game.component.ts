@@ -35,7 +35,7 @@ export class NcaaFootballGameComponent implements OnInit, OnDestroy {
   }
 
   getLineScore(lineScores: LineScore[]): string[] {
-    if (!!lineScores) {
+    if (lineScores) {
       const numberOfQuarters = lineScores.length > 4 ? lineScores.length : 4;
       return Array.from({ length: numberOfQuarters }).map((u, i) =>
         lineScores[i] ? lineScores[i].displayValue.toString() : ''

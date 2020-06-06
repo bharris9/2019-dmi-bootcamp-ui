@@ -11,9 +11,8 @@ describe('MlbComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MlbComponent ]
-    })
-    .compileComponents();
+      declarations: [MlbComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

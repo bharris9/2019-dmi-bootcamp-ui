@@ -10,7 +10,10 @@ describe('Service: WeekSelector', () => {
     });
   });
 
-  it('should ...', inject([WeekSelectorService], (service: WeekSelectorService) => {
-    expect(service).toBeTruthy();
-  }));
+  it('should ...', inject(
+    [WeekSelectorService],
+    (service: WeekSelectorService) => {
+      expect(service).toBeTruthy();
+    }
+  ));
 });

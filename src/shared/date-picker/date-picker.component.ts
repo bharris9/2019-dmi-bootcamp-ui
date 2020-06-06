@@ -20,5 +20,4 @@ export class DatePickerComponent implements OnInit {
   handleChanges(event: MatDatepickerInputEvent<Date>) {
     this.dateChanged.emit(event.value);
   }
-
 }

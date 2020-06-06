@@ -37,7 +37,7 @@ export class SoccerComponent implements OnInit, OnDestroy {
 
   handleDateChanged(date: Date) {
     this.selectedDate = date;
-    if (!!this.selectedLeague) {
+    if (this.selectedLeague) {
       this.getScores(this.selectedDate, this.selectedLeague.apiKey);
     }
   }

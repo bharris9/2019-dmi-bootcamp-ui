@@ -16,12 +16,14 @@
   justify-content: center;
 }
 
-.stats, .labels {
+.stats,
+.labels {
   display: flex;
   flex-direction: column;
   width: 125px;
 }
 
-.stat, .label {
+.stat,
+.label {
   padding-bottom: 10px;
 }

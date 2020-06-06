@@ -11,9 +11,8 @@ describe('LeagueSelectorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LeagueSelectorComponent ]
-    })
-    .compileComponents();
+      declarations: [LeagueSelectorComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

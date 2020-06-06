@@ -6,10 +6,11 @@ import { LeagueCalendar } from './calendar.model';
 
 @Injectable()
 export class WeekSelectorService {
-
   constructor(private http: HttpClient) {}
 
   getCalendar(sport: string, year: string): Observable<LeagueCalendar[]> {
-    return this.http.get<LeagueCalendar[]>(`${environment.apiUrl}/scores/${sport}/calendar?date=${year}`);
+    return this.http.get<LeagueCalendar[]>(
+      `${environment.apiUrl}/scores/${sport}/calendar?date=${year}`
+    );
   }
 }

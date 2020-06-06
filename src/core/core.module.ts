@@ -7,12 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    MaterialModule,
-    SharedModule
-  ],
+  imports: [CommonModule, RouterModule, MaterialModule, SharedModule],
   declarations: [HeaderComponent, HomeComponent],
   exports: [HeaderComponent]
 })

@@ -11,9 +11,8 @@ describe('WeekSelectorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WeekSelectorComponent ]
-    })
-    .compileComponents();
+      declarations: [WeekSelectorComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

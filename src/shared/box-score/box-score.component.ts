@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { BoxScoreItem } from './box-score.model.ts';
 
 @Component({
@@ -6,12 +6,8 @@ import { BoxScoreItem } from './box-score.model.ts';
   templateUrl: './box-score.component.html',
   styleUrls: ['./box-score.component.scss']
 })
-export class BoxScoreComponent implements OnInit {
+export class BoxScoreComponent {
   @Input() boxScore: BoxScoreItem;
-
-  constructor() {}
-
-  ngOnInit() {}
 
   get hasGameStarted() {
     return !!this.boxScore.awayScore.score;

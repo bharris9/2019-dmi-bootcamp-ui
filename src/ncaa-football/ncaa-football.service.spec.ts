@@ -10,7 +10,10 @@ describe('Service: NcaaFootball', () => {
     });
   });
 
-  it('should ...', inject([NcaaFootballService], (service: NcaaFootballService) => {
-    expect(service).toBeTruthy();
-  }));
+  it('should ...', inject(
+    [NcaaFootballService],
+    (service: NcaaFootballService) => {
+      expect(service).toBeTruthy();
+    }
+  ));
 });

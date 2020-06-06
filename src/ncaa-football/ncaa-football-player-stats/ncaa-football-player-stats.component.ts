@@ -9,6 +9,4 @@ import { NcaaFootballPlayerStats } from '../ncaa-football.model';
 export class NcaaFootballPlayerStatsComponent {
   @Input()
   playerStats: NcaaFootballPlayerStats;
-
-  constructor() {}
 }

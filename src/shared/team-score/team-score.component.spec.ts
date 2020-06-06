@@ -11,9 +11,8 @@ describe('TeamScoreComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TeamScoreComponent ]
-    })
-    .compileComponents();
+      declarations: [TeamScoreComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

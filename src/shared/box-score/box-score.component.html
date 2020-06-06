@@ -6,7 +6,9 @@
           <div class="team">
             <img [src]="boxScore.awayScore.logo" />
             <span class="team-name">{{ boxScore.awayScore.team }}</span>
-            <span *ngIf="boxScore.awayScore.record" class="record">({{ boxScore.awayScore.record }})</span>
+            <span *ngIf="boxScore.awayScore.record" class="record"
+              >({{ boxScore.awayScore.record }})</span
+            >
           </div>
         </div>
         <div class="game-status">
@@ -25,7 +27,9 @@
           <div class="team">
             <img [src]="boxScore.homeScore.logo" />
             <span class="team-name">{{ boxScore.homeScore.team }}</span>
-            <span *ngIf="boxScore.awayScore.record" class="record">({{ boxScore.homeScore.record }})</span>
+            <span *ngIf="boxScore.awayScore.record" class="record"
+              >({{ boxScore.homeScore.record }})</span
+            >
           </div>
         </div>
       </div>
@@ -33,4 +37,3 @@
     <ng-content></ng-content>
   </mat-card-content>
 </mat-card>
-  

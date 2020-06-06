@@ -6,7 +6,7 @@ import { NcaaFootballBoxScore } from '../ncaa-football.model';
   templateUrl: './ncaa-football-team-stats.component.html',
   styleUrls: ['./ncaa-football-team-stats.component.scss']
 })
-export class NcaaFootballTeamStatsComponent  {
+export class NcaaFootballTeamStatsComponent {
   @Input() boxScore: NcaaFootballBoxScore;
 
   get homeStats() {
@@ -16,5 +16,4 @@ export class NcaaFootballTeamStatsComponent  {
   get awayStats() {
     return this.boxScore.awayTeamStats;
   }
-
 }

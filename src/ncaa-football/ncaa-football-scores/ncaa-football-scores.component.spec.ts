@@ -11,9 +11,8 @@ describe('NcaaFootballScoresComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NcaaFootballScoresComponent ]
-    })
-    .compileComponents();
+      declarations: [NcaaFootballScoresComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

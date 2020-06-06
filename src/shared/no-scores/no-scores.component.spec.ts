@@ -11,9 +11,8 @@ describe('NoScoresComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NoScoresComponent ]
-    })
-    .compileComponents();
+      declarations: [NoScoresComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

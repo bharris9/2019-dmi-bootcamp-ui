@@ -10,7 +10,7 @@
   <tbody>
     <tr *ngFor="let player of stats.players; let i = index">
       <td class="player">
-        <div class="player-name">{{ player.name }}</div>  
+        <div class="player-name">{{ player.name }}</div>
       </td>
       <td class="stat" *ngFor="let playerStat of player.stats">
         {{ playerStat }}
