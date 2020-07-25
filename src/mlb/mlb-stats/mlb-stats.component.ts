@@ -9,6 +9,10 @@ import { TeamBoxScore, TeamStats } from '../mlb.model';
 export class MlbStatsComponent {
   @Input() boxScore: TeamBoxScore;
 
+  get battingNotes(): string[] {
+    return this.battingStats?.players?.map(p => p.notes) || [];
+  }
+
   get battingStats(): TeamStats {
     return this.boxScore.statistics.find(s => s.type === 'batting');
   }

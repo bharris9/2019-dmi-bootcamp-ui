@@ -20,12 +20,12 @@ export class MlbBoxScoreComponent implements OnInit, OnDestroy {
 
   constructor(private route: ActivatedRoute, private service: MlbService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     const gameId = this.route.snapshot.paramMap.get('id');
     this.getGame(gameId);
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.destroyed.next(true);
   }
 
@@ -56,11 +56,11 @@ export class MlbBoxScoreComponent implements OnInit, OnDestroy {
     }
   }
 
-  showStatPage(homeAwayChange: MatButtonToggleChange) {
+  showStatPage(homeAwayChange: MatButtonToggleChange): void {
     this.statPage = homeAwayChange.value;
   }
 
-  get hasGameStarted() {
+  get hasGameStarted(): boolean {
     return this.boxScore.statusType !== 'STATUS_SCHEDULED';
   }
 }

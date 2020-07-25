@@ -9,4 +9,13 @@ import { BoxScorePlayer } from '../../mlb.model';
 })
 export class MlbStatTableComponent {
   @Input() teamStats: TeamStats;
+  @Input() type: 'pitching' | 'batting' = 'batting';
+
+  getNote(player: BoxScorePlayer): string {
+    return player.notes?.length > 0 ? this.formatNotes(player.notes) : null;
+  }
+
+  private formatNotes(notes: string): string {
+    return this.type === 'batting' ? ` - ${notes.substring(0, 1)}` : notes;
+  }
 }
