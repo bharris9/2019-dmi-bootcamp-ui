@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
@@ -9,7 +9,7 @@ describe('NcaaFootballPlayerStatsComponent', () => {
   let component: NcaaFootballPlayerStatsComponent;
   let fixture: ComponentFixture<NcaaFootballPlayerStatsComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [NcaaFootballPlayerStatsComponent]
     }).compileComponents();
