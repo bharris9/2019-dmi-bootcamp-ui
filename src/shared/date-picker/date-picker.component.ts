@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 @Component({
@@ -11,10 +11,10 @@ export class DatePickerComponent implements OnInit {
   @Output() dateChanged: EventEmitter<Date> = new EventEmitter<Date>();
 
   startDate = new Date();
-  date: FormControl;
+  date: UntypedFormControl;
 
   ngOnInit() {
-    this.date = new FormControl(new Date());
+    this.date = new UntypedFormControl(new Date());
   }
 
   handleChanges(event: MatDatepickerInputEvent<Date>) {
