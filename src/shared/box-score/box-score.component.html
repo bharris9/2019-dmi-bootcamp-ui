@@ -27,7 +27,7 @@
           <div class="team">
             <img [src]="boxScore.homeScore.logo" />
             <span class="team-name">{{ boxScore.homeScore.team }}</span>
-            <span *ngIf="boxScore.awayScore.record" class="record"
+            <span *ngIf="boxScore.homeScore.record" class="record"
               >({{ boxScore.homeScore.record }})</span
             >
           </div>
