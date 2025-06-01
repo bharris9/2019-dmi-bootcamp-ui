@@ -44,7 +44,9 @@ export class MlbBoxScoreComponent implements OnInit, OnDestroy {
   getLineScore(lineScores: LineScore[]): string[] {
     if (lineScores) {
       const numberOfInnings =
-        this.boxScore.inning > 9 ? this.boxScore.inning : 9;
+        this.boxScore && this.boxScore.awayScore.lineScores.length > 9
+          ? this.boxScore.awayScore.lineScores.length
+          : 9;
       return Array.from({ length: numberOfInnings }).map((u, i) =>
         lineScores[i] ? lineScores[i].displayValue.toString() : ''
       );
