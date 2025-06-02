@@ -23,7 +23,7 @@ steps:
   displayName: 'Build Angular'
   inputs:
     command: custom
-    customCommand: run build -- --prod
+    customCommand: run build -- --configuration production
 
 - task: ArchiveFiles@2
   displayName: 'Zip + Stage Built App'
